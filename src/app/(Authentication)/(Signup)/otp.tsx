@@ -14,6 +14,7 @@ import {useRouter} from "expo-router";
 
 const Otp = () => {
     const [timerDisplay, setTimerDisplay] = useState<string>('')
+    const [code, setCode] = useState("")
     const router = useRouter()
 
     useEffect(() => {
@@ -41,7 +42,7 @@ const Otp = () => {
                         numberOfDigits={4}
                         focusColor="green"
                         focusStickBlinkingDuration={500}
-                        onTextChange={(text) => console.log(text)}
+                        onTextChange={(text) => setCode(text)}
                         onFilled={(text) => console.log(`OTP is ${text}`)}
                         textInputProps={{
                             accessibilityLabel: "One-Time Password",
@@ -74,7 +75,7 @@ const Otp = () => {
                     ) : null}
                 </View>
             </View>
-            <Button style={tw`py-4`} onPress={() => router.push('/(Location)/location-lists')} variant={'filled'}>
+            <Button disabled={code.length !== 4} onPress={() => router.push('/location-lists')}>
                 Verify
             </Button>
         </View>

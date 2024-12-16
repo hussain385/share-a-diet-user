@@ -54,7 +54,7 @@ const Introduction = () => {
     return (
         <View>
             <FlatList
-                ref={flatListRef} // Attach the ref
+                ref={flatListRef}
                 data={Slides}
                 renderItem={({item}) => (
                     <View style={[tw`flex-col items-center justify-center`, {width: screen_width, height: screen_height * 0.85}]}>
@@ -69,8 +69,14 @@ const Introduction = () => {
                 showsHorizontalScrollIndicator={false}
                 onScroll={handleOnScroll}
                 onViewableItemsChanged={handleOnViewableItemsChanged}
-                viewabilityConfig={viewAbilityConfig}
+                viewabilityConfig={{
+                    itemVisiblePercentThreshold: 1, // High sensitivity
+                }}
+                decelerationRate="fast" // Faster scroll sensitivity
+                snapToInterval={screen_width} // Ensures snapping aligns perfectly
+                scrollEventThrottle={16} // Increased touch responsiveness
             />
+
             <View style={tw`absolute bottom-0 w-full flex-col items-center justify-center gap-6`}>
                 <PaginationComponent data={Slides} scrollX={scrollX} index={index} />
                 <Button
