@@ -38,7 +38,7 @@ const DropDown = () => {
             maxHeight={300}
             labelField="label"
             valueField="value"
-            placeholder="Select item"
+            placeholder="Food allergy"
             searchPlaceholder="Search..."
             placeholderStyle={tw`text-[#BABDC1]`}
             value={value}
