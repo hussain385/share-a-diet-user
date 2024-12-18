@@ -5,12 +5,14 @@ import Animated, { AnimatedProps } from "react-native-reanimated";
 import fonts from "@/constants/fonts";
 import { moderateScale } from "@/utils/common";
 import {Colors} from "@/constants/Colors";
+import Fonts from "@/constants/fonts";
 
 export const textVariants = {
   "body-sm": "body-sm",
   "body-md": "body-md",
   "body-lg": "body-lg",
   "body-lg-bold": "body-lg-bold",
+  "body-lg-light": "body-lg-light",
   "label-sm": "label-sm",
   "label-md": "label-md",
   "label-lg": "label-lg",
@@ -35,7 +37,7 @@ const textVariant: Record<TextVariants, StyleProp<TextStyle>> = {
   "title-lg": {
     fontSize: moderateScale(22),
     fontFamily: fonts.Roboto.Medium,
-    lineHeight: moderateScale(33),
+    lineHeight: moderateScale(22),
     fontWeight: "600",
   },
   "title-md": {
@@ -61,6 +63,11 @@ const textVariant: Record<TextVariants, StyleProp<TextStyle>> = {
     fontSize: moderateScale(12),
   },
   "body-lg": {
+    fontSize: moderateScale(16),
+    lineHeight: moderateScale(21),
+    fontFamily: Fonts.Roboto.Medium
+  },
+  "body-lg-light": {
     fontSize: moderateScale(16),
     lineHeight: moderateScale(21),
   },

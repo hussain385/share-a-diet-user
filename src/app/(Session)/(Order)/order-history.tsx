@@ -9,9 +9,7 @@ import tw from "@/utils/tailwind";
 import {filters, OrdersArray} from "@/data/new-orders";
 import Button from "@/components/common/Button";
 import FilterBtnComponent from "@/components/home/filter-btn.component";
-import OrderCardComponent from "@/components/cards/order-card.component";
 import {screen_height} from "@/constants/common";
-import OrderDetailsCardComponent from "@/components/cards/order-details-card.component";
 import OrderHistoryCardComponent from "@/components/cards/order-history-card.component";
 import {useRouter} from "expo-router";
 

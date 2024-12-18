@@ -32,3 +32,11 @@ export default [
         color: 'bg-[#332A7C]',
     }
 ]
+
+export const categories = [
+    {title: "All", image: require('@/assets/images/all.png')},
+    {title: "Meat Lovers", image: require('@/assets/images/meat-lovers.png')},
+    {title: "Seafood", image: require('@/assets/images/seafood.png')},
+    {title: "Vegetarian", image: require('@/assets/images/vegetarian.png')},
+    {title: "Healthy", image: require('@/assets/images/healthy.png')}
+]
