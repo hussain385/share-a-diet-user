@@ -23,7 +23,7 @@ const SplashScreen = () => {
             if (currentStep >= steps) {
                 clearInterval(timerInterval);
                 setTimeout(() => {
-                    router.push('/(Introduction)/introduction')
+                    router.push('/home')
                 }, 500)
             }
         }, interval);

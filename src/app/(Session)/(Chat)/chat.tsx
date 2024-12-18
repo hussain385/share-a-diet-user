@@ -8,7 +8,6 @@ import ChatComponent from "@/components/chat/chat.component";
 import {screen_height} from "@/constants/common";
 import TextInput from "@/components/common/TextInput";
 import Magnifer from "@/assets/icons/magnifer.svg";
-import Calendar from "@/assets/icons/calendar.svg";
 import {useRouter} from "expo-router";
 
 const Chat = () => {
