@@ -11,12 +11,15 @@ import Warning from "@/assets/icons/warning.svg";
 import Clock from "@/assets/icons/clock-circle.svg";
 import BagWhite from "@/assets/icons/bag-white.svg";
 import Button from "@/components/common/Button";
+import {useRouter} from "expo-router";
 
 type componentPropType = {
     order: typeof OrdersArray[0]
 }
 
 const MealCardHomeComponent = ({order}: componentPropType) => {
+    const router = useRouter()
+
     return (
         <View style={[commonStyles.shadow, tw`rounded-xl p-4 bg-white w-full gap-5`]}>
             <View style={tw`relative`}>
@@ -46,7 +49,7 @@ const MealCardHomeComponent = ({order}: componentPropType) => {
                 <Clock />
                 <Text variant={"body-lg-bold"} style={tw`text-secondary200`}>{order.estimatedTime} mins left</Text>
             </View>
-            <Button icon={<BagWhite />}>
+            <Button onPress={() => router.push("/meal-details")} icon={<BagWhite />}>
                 Order Now
             </Button>
         </View>
