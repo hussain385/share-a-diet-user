@@ -55,7 +55,7 @@ const CustomDrawerComponent = (props: DrawerContentComponentProps) => {
             <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Review)/customer-feedback")} icons={<ShieldUser/>} label={"Customer Feedback"} style={tw`pb-4 px-2 rounded-md`}/>
             <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Order)/order-details")} icons={<QuestionCircle/>} label={"FAQs"} style={tw`pb-4 px-2 rounded-md`}/>
             <View style={tw`mx-4 my-2`}>
-                <View style={tw`h-px flex-1 bg-[#E9EAEB]`}/>
+                <View style={tw`h-px flex-1 bg-themeBorderColor`}/>
             </View>
             <View style={[tw`flex-row justify-between flex-1 pb-4 mt-2 px-2 items-center`]}>
                 <Text variant={'body-lg'} style={tw`flex-1 gap-4`}>language</Text>
@@ -63,7 +63,7 @@ const CustomDrawerComponent = (props: DrawerContentComponentProps) => {
                     data={[{label: 'English', value: 'english'}]}
                     labelField="label"
                     valueField="value"
-                    style={tw`bg-white border border-[#E9EAEB] text-body-lg p-1.5 px-2 flex-1 items-center rounded-lg`}
+                    style={tw`bg-white border border-themeBorderColor text-body-lg p-1.5 px-2 flex-1 items-center rounded-lg`}
                     selectedTextStyle={tw`text-body-lg`}
                     placeholderStyle={tw`text-body-lg`}
                     itemTextStyle={tw`text-body-lg`}

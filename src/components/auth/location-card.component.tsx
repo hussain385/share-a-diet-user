@@ -13,7 +13,7 @@ type componentPropType = {
 
 const LocationCardComponent = ({item, selectedItemId, setSelectedLocation}: componentPropType) => {
     return (
-        <TouchableOpacity onPress={() => setSelectedLocation(item.id)} style={tw`flex-row items-center gap-5 justify-between p-4 border border-[#E9EAEB] rounded-xl`}>
+        <TouchableOpacity onPress={() => setSelectedLocation(item.id)} style={tw`flex-row items-center gap-5 justify-between p-4 border border-themeBorderColor rounded-xl`}>
             <View>
                 <Text numberOfLines={1} variant={'body-lg-bold'}>{item.name}</Text>
                 <Text numberOfLines={2} variant={'body-lg'} style={{width: screen_width * 0.65}}>{item.address}</Text>

@@ -24,7 +24,8 @@ module.exports = {
         secondary50: "#FFCFC6",
         secondary100: '#FFEFED',
         secondary200: "#F36A26",
-        inputBgColor: "#1F2A370D"
+        inputBgColor: "#1F2A370D",
+        themeBorderColor: "#E9EAEB"
       },
       borderRadius: {
         lg: "0.5rem",

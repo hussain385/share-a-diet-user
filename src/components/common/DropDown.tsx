@@ -28,7 +28,7 @@ const DropDown = () => {
 
     return (
         <Dropdown
-            style={tw`bg-inputBgColor border border-[#E9EAEB] items-center px-4 h-14 rounded-lg`}
+            style={tw`bg-inputBgColor border border-themeBorderColor items-center px-4 h-14 rounded-lg`}
             // placeholderStyle={styles.placeholderStyle}
             // selectedTextStyle={styles.selectedTextStyle}
             inputSearchStyle={tw`rounded-md`}

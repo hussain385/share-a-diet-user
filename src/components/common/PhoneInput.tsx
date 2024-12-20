@@ -18,7 +18,7 @@ const PhoneInputComponent = () => {
                 setFormattedValue(text);
             }}
             autoFocus
-            containerStyle={tw`bg-inputBgColor rounded-lg border border-[#E9EAEB] w-full`}
+            containerStyle={tw`bg-inputBgColor rounded-lg border border-themeBorderColor w-full`}
             textContainerStyle={tw`bg-transparent rounded-lg`}
             textInputStyle={tw`text-body-lg`}
             codeTextStyle={tw`text-[#697079] -ml-4`}

@@ -21,7 +21,7 @@ const TextInput = ({placeholder, icon, rightIcon, styleCustom, label, labelStyle
     return (
         <View style={mainContainer}>
             {label && <Text variant={"label-lg"} style={[tw`mb-1`, labelStyle]}>{label}</Text>}
-            <View style={tw`bg-inputBgColor border border-[#E9EAEB] flex-row items-center px-4 w-full rounded-lg ${styleCustom ? styleCustom : ""}`}>
+            <View style={tw`bg-inputBgColor border border-themeBorderColor flex-row items-center px-4 w-full rounded-lg ${styleCustom ? styleCustom : ""}`}>
                 {icon && icon}
                 <TextInputComponent value={value} placeholder={placeholder} placeholderTextColor={'#BABDC1'} style={[tw`h-14 text-primary flex-1 ml-3 ${textInputStyle ? textInputStyle : ""}`]}/>
                 {rightIcon && rightIcon}

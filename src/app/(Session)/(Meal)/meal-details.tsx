@@ -16,11 +16,13 @@ import Fonts from "../../../constants/fonts";
 import MealCard from "@/components/cards/meal-card.component";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import BagWhite from "@/assets/icons/bag-white.svg";
+import {useRouter} from "expo-router";
 
 const MealDetails = () => {
     const [numberItem, setNumberItem] = useState<number>(1)
     const [isDelivery, setIsDelivery] = useState(false);
     const order = OrdersArray[0]
+    const router = useRouter();
 
     return (
         <View style={tw`gap-5`}>
@@ -57,20 +59,20 @@ const MealDetails = () => {
             </View>
             <Text variant={"title-lg"} style={tw`text-secondary200 self-end`}>SGD {order.totalPrice}</Text>
             <Text variant={'body-lg-bold'}>Special Instructions</Text>
-            <TextInput placeholder={"Add note"} multiline style={[tw`h-20 border border-[#E9EAEB] p-3 rounded-xl`, {textAlignVertical: "top"}]}/>
+            <TextInput placeholder={"Add note"} multiline style={[tw`h-20 border border-themeBorderColor p-3 rounded-xl`, {textAlignVertical: "top"}]}/>
             <View style={tw`flex-row gap-4`}>
                 <Button textVariant={"body-lg"} onPress={() => setIsDelivery(true)} style={tw`flex-1 ${isDelivery ? 'bg-secondary200' : 'bg-white'}`} textStyle={tw`${isDelivery ? 'text-white' : 'text-black'}`}>Delivery</Button>
                 <Button textVariant={"body-lg"} onPress={() => setIsDelivery(false)} style={tw`flex-1 ${!isDelivery ? 'bg-secondary200' : 'bg-white'}`} textStyle={tw`${!isDelivery ? 'text-white' : 'text-black'}`}>Pickup</Button>
             </View>
             <View style={[tw`p-2 rounded-lg flex-row gap-4 w-full self-center items-center bg-white`, commonStyles.shadow]}>
-                <TouchableOpacity disabled={numberItem === 1} onPress={() => setNumberItem(numberItem - 1)} style={tw`border rounded-full w-10 h-10 border-[#E9EAEB] bg-white items-center justify-center`}>
+                <TouchableOpacity disabled={numberItem === 1} onPress={() => setNumberItem(numberItem - 1)} style={tw`border rounded-full w-10 h-10 border-themeBorderColor bg-white items-center justify-center`}>
                     <AntDesign name="minus" size={24} color="black" />
                 </TouchableOpacity>
                 <Text variant={"title-lg"} style={{fontFamily: Fonts.Roboto.Regular, marginTop: 4}}>{numberItem}</Text>
-                <TouchableOpacity onPress={() => setNumberItem(numberItem + 1)} style={tw`border rounded-full w-10 h-10 border-[#E9EAEB] bg-white items-center justify-center`}>
+                <TouchableOpacity onPress={() => setNumberItem(numberItem + 1)} style={tw`border rounded-full w-10 h-10 border-themeBorderColor bg-white items-center justify-center`}>
                     <AntDesign name="plus" size={24} color="black" />
                 </TouchableOpacity>
-                <Button style={tw`flex-1`} icon={<BagWhite />}>
+                <Button onPress={() => router.push("/pickup-info")} style={tw`flex-1`} icon={<BagWhite />}>
                     Order Now
                 </Button>
             </View>

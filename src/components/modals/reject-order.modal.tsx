@@ -30,7 +30,7 @@ const RejectOrderModal = ({modalVisible, togglePopup}: componentPropType) => {
                 <View style={styles.modalView}>
                     <Text variant={"title-lg"} style={tw`text-center`}>Reject Order</Text>
                     <Text variant={"body-lg"} style={tw`text-center w-[60%]`}>Are you sure you want to reject this order!</Text>
-                    <Button variant={"outlined"} style={tw`border-[#E9EAEB] w-full`} textStyle={tw`text-[#FF6347]`} onPress={togglePopup}>No</Button>
+                    <Button variant={"outlined"} style={tw`border-themeBorderColor w-full`} textStyle={tw`text-[#FF6347]`} onPress={togglePopup}>No</Button>
                     <Button variant={"outlined"} style={tw`w-full`} onPress={() => router.push("/reject-order")}>Reject</Button>
                     <Button onPress={togglePopup} variant={"ghost"} style={tw`absolute top-0 right-3`}>
                         <Cancel />
