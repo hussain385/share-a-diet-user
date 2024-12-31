@@ -37,10 +37,10 @@ const UserProfile = () => {
                         right={<View style={tw`w-11`}/>}/>
                 <View style={{height: screen_height * 0.85}}>
                     <ScrollView contentContainerStyle={tw`px-[5%] pb-36`}>
-                        <View style={tw`flex-row gap-4`}>
+                        <View style={tw`flex-row flex-1 gap-4`}>
                             <Avatar size={65} name={""}
                                     pictureUrl={"https://s3-alpha-sig.figma.com/img/d3b2/1420/be0c601433a270f2eab8f555d444da52?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=LbLXdMLDCpfKWd6AJfAqrBbjddPSfiH6mFrsPJWUmPz-b622sF7yR2hUgJypm-B30yY~IDKoqaTOeTrK84LZUeJe9Gmt4dN2pkRI5mqluWZ4mqbEValge59GUSH~yObbxKZ8WFv9Vj96rl9bcepJ6tTENMgHfjKw3euF~gjcFw~QIKJlyNPHwsv0rLDrkdW~OiISIA-0p2NoyTDVEfSGq09JZH4iSzgStWBPmwBwB0vORpcG8ywH0kMY00BRyxdiKj2FvqHL1KS5hOAo6~EwYtACLcWvtkBVypFDa7RskvACqGrw~JX1Wn3QWawvKXdvWBR7HA~vuUD-OwP9UY-~2Q__"}/>
-                            <View style={tw`flex-row justify-between items-center flex-1`}>
+                            <View style={tw`flex-row justify-between flex-1`}>
                                 <View style={tw`flex-col flex-1 justify-between`}>
                                     <Text variant={"title-sm"}>Chang LI</Text>
                                     <View style={tw`flex-row items-center gap-1`}>

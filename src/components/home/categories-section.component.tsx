@@ -19,7 +19,7 @@ const CategorySectionComponent = () => {
                     key={category.title}
                     onPress={() => setSelectedCategory(category.title)}
                     style={[
-                        tw`rounded-lg w-20 h-16 border ${selectedCategory === category.title ? "border-secondary200" : "border-white"} items-center justify-center gap-1 bg-white`,
+                        tw`rounded-lg min-w-20 h-16 border ${selectedCategory === category.title ? "border-secondary200" : "border-white"} items-center justify-center gap-1 bg-white`,
                         commonStyles.shadow,
                     ]}
                 >

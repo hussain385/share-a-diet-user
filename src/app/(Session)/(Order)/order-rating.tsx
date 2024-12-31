@@ -9,10 +9,22 @@ import Gallery from "@/assets/icons/gallery.svg";
 import Star from "@/assets/icons/star.svg";
 import Button from "@/components/common/Button";
 import SuccessModal from "@/components/modals/success.modal";
+import Ratings from "@/components/common/Ratings";
+import useImagePicker from "@/hooks/useImagePicker";
+import {useRouter} from "expo-router";
 
 
 const OrderRating = () => {
     const [openSuccessModal, setOpenSuccessModal] = useState(false);
+    const [ratingStars, setRatingStars] = useState(0);
+    const {
+        image,
+        openLibrary,
+        openCamera,
+        isImagePickerPopupVisible,
+        toggleImagePickerPopup,
+    } = useImagePicker();
+    const router = useRouter();
 
     const toggleModal = useCallback(() => {
         setOpenSuccessModal(!openSuccessModal)
@@ -32,18 +44,13 @@ const OrderRating = () => {
                     />
                 </View>
                 <View style={tw`gap-5`}>
-                    <View style={tw`flex-row justify-evenly`}>
-                        <Star width={60} height={60}/>
-                        <Star width={60} height={60}/>
-                        <Star width={60} height={60}/>
-                        <Star width={60} height={60}/>
-                        <Star width={60} height={60}/>
-                    </View>
+                    <Ratings size={60} rating={ratingStars} onRate={(rating) => setRatingStars(rating)}/>
                     <View style={tw`bg-inputBgColor rounded-lg`}>
-                        <TextInput placeholder={"Type your review"} multiline style={[tw`h-20 p-3`, {textAlignVertical: "top"}]}/>
+                        <TextInput placeholder={"Type your review"} multiline
+                                   style={[tw`h-20 p-3`, {textAlignVertical: "top"}]}/>
                         <View style={tw`flex-row items-center gap-2 justify-end p-3`}>
-                            <Button style={tw`h-6`} variant={"ghost"} icon={<Camera />}></Button>
-                            <Button style={tw`h-6`} variant={"ghost"} icon={<Gallery />}></Button>
+                            <Button onPress={openCamera} style={tw`h-6`} variant={"ghost"} icon={<Camera/>}></Button>
+                            <Button onPress={openLibrary} style={tw`h-6`} variant={"ghost"} icon={<Gallery/>}></Button>
                         </View>
                     </View>
                     <View style={tw`items-center flex-row`}>
@@ -56,7 +63,11 @@ const OrderRating = () => {
                     </View>
                 </View>
             </View>
-            <SuccessModal modalVisible={openSuccessModal} togglePopup={toggleModal} btnTitle={"Back to dashboard"} title={"Thank you!"} onPressBtn={toggleModal}/>
+            <SuccessModal modalVisible={openSuccessModal} togglePopup={toggleModal} btnTitle={"Back to dashboard"}
+                          title={"Thank you!"} onPressBtn={() => {
+                router.push('/home')
+                toggleModal()
+            }}/>
         </View>
     );
 };
