@@ -15,12 +15,20 @@ import Button from "@/components/common/Button";
 import TextInput from "@/components/common/TextInput";
 import {messages} from "@/data/messages";
 import MessageComponent from "@/components/chat/message.component";
+import useImagePicker from "@/hooks/useImagePicker";
+import ImagePickerComponent from "@/components/common/ImagePicker";
 
 const ChatScreen = () => {
     const [keyboardVisible, setKeyboardVisible] = useState(false);
     const router = useRouter();
     const flatListRef = useRef<FlatList>(null);
-
+    const {
+        image,
+        openLibrary,
+        openCamera,
+        isImagePickerPopupVisible,
+        toggleImagePickerPopup,
+    } = useImagePicker();
 
     useEffect(() => {
         const keyboardDidShow = () => {
@@ -79,11 +87,11 @@ const ChatScreen = () => {
                                 </View>
                             </View>
                         </View>
-                        <TouchableOpacity
-                            style={[tw`rounded-full items-center justify-center bg-white w-10 h-10`]}
-                        >
-                            <Phone />
-                        </TouchableOpacity>
+                        {/*<TouchableOpacity*/}
+                        {/*    style={[tw`rounded-full items-center justify-center bg-white w-10 h-10`]}*/}
+                        {/*>*/}
+                        {/*    <Phone />*/}
+                        {/*</TouchableOpacity>*/}
                     </View>
                 </View>
 
@@ -99,7 +107,7 @@ const ChatScreen = () => {
 
                 {/* Input Section */}
                 <View style={tw`flex-row bg-white gap-3 px-[5%] items-center py-5`}>
-                    <Button icon={<Plus />} style={tw`bg-white w-10 h-10`} />
+                    <Button onPress={toggleImagePickerPopup} icon={<Plus />} style={tw`bg-white w-10 h-10`} />
                     <TextInput
                         placeholder="Type here..."
                         mainContainer={tw`flex-1`}
@@ -108,6 +116,7 @@ const ChatScreen = () => {
                     <Button icon={<Plain />} style={tw`rounded-full w-10 h-10`} />
                 </View>
             </View>
+            <ImagePickerComponent modalVisible={isImagePickerPopupVisible} toggleImagePickerPopup={toggleImagePickerPopup} openCamera={openCamera} openLibrary={openLibrary}/>
         </KeyboardAvoidingView>
     );
 };

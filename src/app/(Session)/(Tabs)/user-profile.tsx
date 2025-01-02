@@ -19,12 +19,13 @@ import Phone from "@/assets/icons/phone.svg";
 import Letter from "@/assets/icons/letter.svg";
 import Logout from "@/assets/icons/logout.svg";
 import AnalyticsLinksComponents from "@/components/analytics/analytics-links.components";
-import Receipt from "@/assets/icons/receipt.svg";
+import Location from "@/assets/icons/location.svg";
 import Wallet from "@/assets/icons/wallet-black.svg";
 import ChatDots from "@/assets/icons/chat-dots.svg";
 import ShieldUser from "@/assets/icons/shield-user.svg";
 import QuestionCircle from "@/assets/icons/question-circle.svg";
 import {Dropdown} from "react-native-element-dropdown";
+import LabelWithSwitch from "@/components/common/LabelWithSwitch";
 
 const UserProfile = () => {
     const [value, setValue] = useState<string>("english");
@@ -63,19 +64,19 @@ const UserProfile = () => {
                             Logout
                         </Button>
                         <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Order)/order-history")}
-                                                  icons={<Receipt/>} label={"Order History"}
+                                                  icons={<Location width={24} height={24}/>} label={"My Locations"}
                                                   style={tw`pb-4 px-2 rounded-md`}/>
-                        <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Analytics)/analytics")}
+                        <AnalyticsLinksComponents onPress={() => {}}
                                                   icons={<Wallet/>} label={"Payment Methods"}
                                                   style={tw`pb-4 px-2 rounded-md`}/>
                         <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Chat)/chat")}
-                                                  icons={<ChatDots/>} label={"Messages"}
+                                                  icons={<ChatDots width={24} height={24}/>} label={"Messages"}
                                                   style={tw`pb-4 px-2 rounded-md`} count={1}/>
-                        <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Review)/customer-feedback")}
-                                                  icons={<ShieldUser/>} label={"Security"}
+                        <AnalyticsLinksComponents onPress={() => router.push("/faqs")}
+                                                  icons={<ShieldUser width={24} height={24}/>} label={"Security"}
                                                   style={tw`pb-4 px-2 rounded-md`}/>
                         <AnalyticsLinksComponents onPress={() => router.push("/faqs")}
-                                                  icons={<QuestionCircle/>} label={"FAQs"}
+                                                  icons={<QuestionCircle width={24} height={24}/>} label={"FAQs"}
                                                   style={tw`pb-4 px-2 rounded-md`}/>
                         <View style={tw`mx-4 my-2`}>
                             <View style={tw`h-px flex-1 bg-themeBorderColor`}/>
@@ -105,7 +106,9 @@ const UserProfile = () => {
 
                         </View>
                         <AnalyticsLinksComponents label={"Security"} style={tw`pb-6 px-2 rounded-md`}/>
-                        <AnalyticsLinksComponents label={"Push Notification"} style={tw`pb-6 px-2 rounded-md`}/>
+                        <LabelWithSwitch label={"Push Notification"} style={tw`pb-6 px-2 rounded-md`}/>
+                        <LabelWithSwitch label={"Sound"} style={tw`pb-6 px-2 rounded-md`}/>
+                        <LabelWithSwitch label={"Automatically Updated"} style={tw`pb-6 px-2 rounded-md`}/>
                         <AnalyticsLinksComponents label={"Term of Service"} style={tw`pb-6 px-2 rounded-md`}/>
                         <AnalyticsLinksComponents label={"Privacy Policy"} style={tw`pb-6 px-2 rounded-md`}/>
                     </ScrollView>

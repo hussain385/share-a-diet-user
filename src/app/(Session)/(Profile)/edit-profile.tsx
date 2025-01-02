@@ -15,6 +15,9 @@ import {useRouter} from "expo-router";
 import ImagePickerComponent from "@/components/common/ImagePicker";
 import useImagePicker from "@/hooks/useImagePicker";
 import {isEmpty} from "lodash";
+import DropDown from "@/components/common/DropDown";
+import {countries} from "@/data/home";
+import Text from "@/components/common/Text";
 
 const EditProfile = () => {
     const router = useRouter();
@@ -44,9 +47,10 @@ const EditProfile = () => {
                     <TextInput icon={<User />} placeholder={'Enter username'}/>
                     <TextInput icon={<Letter />} placeholder={'Enter email'}/>
                     <PhoneInputComponent />
-                    <TextInput label={"Country"} placeholder={'Enter username'}/>
+                    <DropDown label={"Country"}  placeholder={'Select country'} dataProp={countries}/>
                     <TextInput label={"Street Address"} placeholder={'Enter email'}/>
                     <TextInput label={"City"} placeholder={'Enter email'}/>
+                    <DropDown label={"Food Allergy"}/>
                     <TextInput label={"State/Province"} placeholder={'Enter email'}/>
                     <TextInput label={"Zip/Postal Code"} placeholder={'Enter email'}/>
                     <Button style={tw`mt-4`}>Save Changes</Button>

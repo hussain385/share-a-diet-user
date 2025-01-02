@@ -23,7 +23,7 @@ const SplashScreen = () => {
             if (currentStep >= steps) {
                 clearInterval(timerInterval);
                 setTimeout(() => {
-                    router.push('/introduction')
+                    router.push('/welcome')
                 }, 500)
             }
         }, interval);
@@ -31,19 +31,17 @@ const SplashScreen = () => {
     }, []);
 
     return (
-        <SafeAreaView style={tw`bg-primary flex-1`}>
-            <View style={tw`bg-primary flex-1 flex-col justify-between items-center`}>
-                <View />
-                <Image source={require('@/assets/images/logo.png')} style={tw`w-[207px] h-[207px] mt-8`}/>
-                <View style={tw`w-10/12 flex-col gap-8 mb-4`}>
-                    <Text entering={FadeInDown.delay(600)} variant={'title-lg'} style={tw`text-center text-white`}>
-                        As fast as lightning,{'\n'}
-                        as delicious as thunder!
-                    </Text>
-                    <LinearProgressBar progress={timer} height={6}/>
-                </View>
+        <View style={tw`bg-primary flex-1 flex-col justify-between items-center`}>
+            <View/>
+            <Image source={require('@/assets/images/logo.png')} style={tw`w-[207px] h-[207px] mt-8`}/>
+            <View style={tw`w-10/12 flex-col gap-8 mb-4`}>
+                <Text entering={FadeInDown.delay(600)} variant={'title-lg'} style={tw`text-center text-white`}>
+                    As fast as lightning,{'\n'}
+                    as delicious as thunder!
+                </Text>
+                <LinearProgressBar progress={timer} height={6}/>
             </View>
-        </SafeAreaView>
+        </View>
     );
 };
 

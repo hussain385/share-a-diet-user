@@ -23,7 +23,7 @@ const FAQs = () => {
             <FlatList data={faqs} renderItem={({item}) => <FAQsCard {...item}/>} contentContainerStyle={tw`px-[5%] gap-2`}/>
             <View style={tw`gap-3 absolute bottom-0 right-5`}>
                 <Button style={tw`w-12 h-12`} icon={<LetterOutline />}></Button>
-                <Button style={tw`w-12 h-12`} icon={<PhoneCalling />}></Button>
+                {/*<Button style={tw`w-12 h-12`} icon={<PhoneCalling />}></Button>*/}
             </View>
         </SafeAreaView>
     );

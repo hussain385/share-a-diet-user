@@ -7,6 +7,7 @@ import PaginationComponent from "@/components/auth/pagination.component";
 import {screen_height, screen_width} from "@/constants/common";
 import Button from "@/components/common/Button";
 import {useRouter} from "expo-router";
+import Fonts from "@/constants/fonts";
 
 const Introduction = () => {
     const [index, setIndex] = useState<number>(0); // Track the current index
@@ -60,7 +61,7 @@ const Introduction = () => {
                     <View style={[tw`flex-col items-center justify-center`, {width: screen_width, height: screen_height * 0.85}]}>
                         <Image source={item.img} style={tw`w-[207px] h-[207px] mb-12`}/>
                         <Text variant={'title-lg'}>{item.title}</Text>
-                        <Text variant={'body-lg'} style={tw`text-center`}>{item.description}</Text>
+                        <Text variant={'body-lg'} style={[tw`text-center mt-3`, {fontFamily: Fonts.Roboto.Regular}]}>{item.description}</Text>
                     </View>
                 )}
                 horizontal

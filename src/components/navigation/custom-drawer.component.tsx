@@ -10,7 +10,7 @@ import Phone from "@/assets/icons/phone.svg";
 import Letter from "@/assets/icons/letter.svg";
 import Logout from "@/assets/icons/logout.svg";
 import ShieldUser from "@/assets/icons/shield-user.svg";
-import Wallet from "@/assets/icons/wallet-black.svg";
+import Location from "@/assets/icons/location.svg";
 import QuestionCircle from "@/assets/icons/question-circle.svg";
 import Receipt from "@/assets/icons/receipt.svg";
 import Button from "@/components/common/Button";
@@ -18,6 +18,7 @@ import AnalyticsLinksComponents from "@/components/analytics/analytics-links.com
 import ChatDots from "@/assets/icons/chat-dots.svg";
 import {Dropdown} from "react-native-element-dropdown";
 import {useRouter} from "expo-router";
+import LabelWithSwitch from "@/components/common/LabelWithSwitch";
 
 
 const CustomDrawerComponent = (props: DrawerContentComponentProps) => {
@@ -49,11 +50,11 @@ const CustomDrawerComponent = (props: DrawerContentComponentProps) => {
             <Button onPress={() => router.push("/(Introduction)/introduction")} icon={<Logout/>} style={tw`bg-secondary100 my-6`} textStyle={tw`text-secondary200`}>
                 Logout
             </Button>
-            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Order)/order-history")} icons={<Receipt/>} label={"Order History"} style={tw`pb-4 px-2 rounded-md`}/>
-            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Analytics)/analytics")} icons={<Wallet />} label={"Monthly Earnings"} style={tw`pb-4 px-2 rounded-md`}/>
-            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Chat)/chat")} icons={<ChatDots/>} label={"Messages"} style={tw`pb-4 px-2 rounded-md`} count={1}/>
-            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Review)/customer-feedback")} icons={<ShieldUser/>} label={"Customer Feedback"} style={tw`pb-4 px-2 rounded-md`}/>
-            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Order)/order-details")} icons={<QuestionCircle/>} label={"FAQs"} style={tw`pb-4 px-2 rounded-md`}/>
+            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Order)/order-history")} icons={<Receipt width={20} height={20}/>} label={"Order History"} style={tw`pb-4 px-2 rounded-md`}/>
+            <AnalyticsLinksComponents onPress={() => router.push("/location-lists")} icons={<Location width={20} height={20}/>} label={"My Location"} style={tw`pb-4 px-2 rounded-md`}/>
+            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Chat)/chat")} icons={<ChatDots width={20} height={20}/>} label={"Messages"} style={tw`pb-4 px-2 rounded-md`} count={1}/>
+            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(FAQs)/faqs")} icons={<ShieldUser width={20} height={20}/>} label={"Security"} style={tw`pb-4 px-2 rounded-md`}/>
+            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(FAQs)/faqs")} icons={<QuestionCircle width={20} height={20}/>} label={"FAQs"} style={tw`pb-4 px-2 rounded-md`}/>
             <View style={tw`mx-4 my-2`}>
                 <View style={tw`h-px flex-1 bg-themeBorderColor`}/>
             </View>
@@ -82,7 +83,7 @@ const CustomDrawerComponent = (props: DrawerContentComponentProps) => {
 
             </View>
             <AnalyticsLinksComponents label={"Security"} style={tw`pb-6 px-2 rounded-md`}/>
-            <AnalyticsLinksComponents label={"Push Notification"} style={tw`pb-6 px-2 rounded-md`}/>
+            <LabelWithSwitch label={"Push Notification"} style={tw`pb-6 px-2 rounded-md`}/>
             <AnalyticsLinksComponents label={"Term of Service"} style={tw`pb-6 px-2 rounded-md`}/>
             <AnalyticsLinksComponents label={"Privacy Policy"} style={tw`pb-6 px-2 rounded-md`}/>
         </DrawerContentScrollView>
