@@ -9,8 +9,11 @@ import CurrentLocationCardComponent from "@/components/cards/current-location-ca
 import Clock from "@/assets/icons/clock-circle.svg";
 import {commonStyles} from "@/styles/common.styles";
 import Button from "@/components/common/Button";
+import {useRouter} from "expo-router";
 
 const OrderDetails = () => {
+    const router = useRouter();
+
     return (
         <View style={tw`gap-5 h-full`}>
             <AppBar title={'Order Details'} left={<BackBtn/>} right={<View style={tw`w-11`}/>}/>
@@ -31,7 +34,7 @@ const OrderDetails = () => {
                         <Text variant={"body-lg-light"} style={tw`text-center`}>SGD 12.00</Text>
                     </View>
                     <View style={tw`flex-row justify-between items-center`}>
-                        <Text variant={"body-lg-light"} style={tw`text-center`}>VAT</Text>
+                        <Text variant={"body-lg-light"} style={tw`text-center`}>GST</Text>
                         <Text variant={"body-lg-light"} style={tw`text-center`}>SGD 6.00</Text>
                     </View>
                     <View style={tw`h-px bg-black`}/>
@@ -41,6 +44,12 @@ const OrderDetails = () => {
                     </View>
                 </View>
             </ScrollView>
+            <View style={[tw`p-2 rounded-lg flex-row gap-4 w-[90%] self-center items-center bg-white absolute bottom-3`, commonStyles.shadow]}>
+                <Text variant={"title-lg"} style={tw`text-center flex-1`}>SGD 18.00</Text>
+                <Button onPress={() => router.push('/order-success')} style={tw`flex-1`}>
+                    Order Again
+                </Button>
+            </View>
         </View>
     );
 };

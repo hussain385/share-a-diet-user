@@ -30,7 +30,7 @@ const SuccessModal = ({modalVisible, togglePopup, title, btnTitle, onPressBtn}: 
                 <View style={styles.modalView}>
                     <Text variant={"title-md-bold"} style={tw`text-center`}>{title}</Text>
                     <Image
-                        source={{uri: "https://s3-alpha-sig.figma.com/img/84c7/b257/f53075fa47e29f2c98fce81622427042?Expires=1735516800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UEUEGbaANyxZhLl1CfRI3yrch5jd2jkG3A0D-hyszHLrP323J8y7n3WasqyTrxyDRYwyPGc5TfM4ADW1q1oNw-LnWS-1JL1FZLPsIILaRRfxztXwpHK02sDGylWQn2WKdyfQO1mp6ejFdBF278MgrGNfH3hcfXIBJhB116fKriU~62YEUp94thMN~8RIxleFOv7dOiqEXH1zFcI3YYfJWjIiyAoaII7QBTlDCN~Zu~aSgVsLs4FNjn~m1ejZ0r2l9Xdo9-Cqm0t9UyZCUs~AHTXxVDdJYTfsoLf6K~nJYmpEGpul3yWeaKuQ40wVuvEnfJyQkQSFcu3MojtPaH8jfg__"}}
+                        source={require('@/assets/images/thank-you.png')}
                         style={tw`h-40 w-40`}
                     />
                     <Button style={tw`w-full`} onPress={onPressBtn}>{btnTitle}</Button>

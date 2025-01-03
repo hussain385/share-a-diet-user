@@ -26,7 +26,7 @@ const TrackOrder = () => {
                 {/*<Button style={tw`bg-primary pr-6 pl-4`} icon={<PhoneCall />}>*/}
                 {/*    Call cook*/}
                 {/*</Button>*/}
-                <Button onPress={() => router.push('/order-success')} style={tw`w-full`}>Order Details</Button>
+                <Button onPress={() => router.push('/order-details')} style={tw`w-full`}>Order Details</Button>
             </View>
         </View>
     );

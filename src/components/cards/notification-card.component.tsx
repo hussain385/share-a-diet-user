@@ -4,7 +4,6 @@ import tw from "@/utils/tailwind";
 import {Image, TouchableOpacity, View} from "react-native";
 import Chat from "@/assets/icons/chat.svg";
 import Text from "@/components/common/Text";
-import Star from "@/assets/icons/star.svg";
 import Button from "@/components/common/Button";
 import {OrdersArray} from "@/data/new-orders";
 import {useRouter} from "expo-router";
@@ -26,10 +25,12 @@ const NotificationCardComponent = ({order}: componentPropType) => {
                 <Text variant={"title-lg"} style={tw`text-secondary200`}>SGD {order.totalPrice}</Text>
                 <Text variant={"body-lg"}>Quantity: {order.quantity}</Text>
             </View>
-            <View style={tw`my-4`}>
+            <View style={tw`my-4 mb-6`}>
                 <UserInfoAvatar picture={order.user.avatar} name={order.user.name} distance={`${order.user.distance}`}/>
             </View>
-            <Button onPress={() => router.push("/(Session)/(Order)/order-details")} variant={'outlined'} style={tw`my-4 mt-6`}>View Order</Button>
+            {order.orderId === '18361' && <Button onPress={() => router.push("/(Session)/(Order)/order-details")} variant={'outlined'}
+                     style={tw`my-4`}>Track Order</Button>}
+            <Button onPress={() => router.push("/chat-screen")} variant={'outlined'} icon={<Chat />} style={tw`mb-4`}>Chat with cook</Button>
         </View>
     );
 };

@@ -19,7 +19,7 @@ const PickupInfo = () => {
 
     return (
         <View style={tw`pt-4 gap-5 h-full`}>
-            <AppBar title={'My Basket'} left={<BackBtn/>} right={<View style={tw`w-11`}/>}/>
+            <AppBar title={'My Basket'} left={<BackBtn customOnPress={() => router.push('/meal-details')}/>} right={<View style={tw`w-11`}/>}/>
             <ScrollView contentContainerStyle={tw`px-[5%] gap-5 pb-4`}>
                 <Text variant={"body-lg-light"}>Order Summary</Text>
                 <OrderCardComponent />
@@ -37,7 +37,7 @@ const PickupInfo = () => {
                         <Text variant={"body-lg-light"} style={tw`text-center`}>SGD 12.00</Text>
                     </View>
                     <View style={tw`flex-row justify-between items-center`}>
-                        <Text variant={"body-lg-light"} style={tw`text-center`}>VAT</Text>
+                        <Text variant={"body-lg-light"} style={tw`text-center`}>GST</Text>
                         <Text variant={"body-lg-light"} style={tw`text-center`}>SGD 6.00</Text>
                     </View>
                     <View style={tw`h-px bg-black`}/>

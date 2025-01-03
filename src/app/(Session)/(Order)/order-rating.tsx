@@ -12,6 +12,7 @@ import SuccessModal from "@/components/modals/success.modal";
 import Ratings from "@/components/common/Ratings";
 import useImagePicker from "@/hooks/useImagePicker";
 import {useRouter} from "expo-router";
+import {screen_width} from "@/constants/common";
 
 
 const OrderRating = () => {
@@ -39,12 +40,12 @@ const OrderRating = () => {
                         Rate your Experience
                     </Text>
                     <Image
-                        source={{uri: "https://s3-alpha-sig.figma.com/img/12b4/c79f/a36364904f6a728c8a2d774230bec604?Expires=1735516800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AvkrEhedDvDRT4aYVTgEJtrol6JAXh9QySFGVAftRXz4PCYUHKdnITIq~BwSqvRQ8DxSIN3aqGPsj47qOtgFJi9iZMZILHAfhAVqlnkDYM63S5ZoN83UWiR8td56ETW8hOtHqDics52-bffnyQGhdYnK07rcg6a-Vb2WTT6z5Y~q2IpNFOk7wleFtg4NStTTHYueK2w0IbgApqUIuRcQ9WsyhKOoXKFNabWhAE4FuDAQaHmWkSDKVjr6UlHUwFOEFcQFQ2aj5HGELqEMeLGFYRsDt-A8OhA6GpYJBINr2H96DEEiqSn46AZUabxy-piRFOYSPlPYjBpeqggstw~R3g__"}}
+                        source={require('@/assets/images/diamond.png')}
                         style={tw`w-40 h-40 self-center mt-6`}
                     />
                 </View>
                 <View style={tw`gap-5`}>
-                    <Ratings size={60} rating={ratingStars} onRate={(rating) => setRatingStars(rating)}/>
+                    <Ratings size={screen_width * 0.15} rating={ratingStars} onRate={(rating) => setRatingStars(rating)}/>
                     <View style={tw`bg-inputBgColor rounded-lg`}>
                         <TextInput placeholder={"Type your review"} multiline
                                    style={[tw`h-20 p-3`, {textAlignVertical: "top"}]}/>
@@ -54,7 +55,7 @@ const OrderRating = () => {
                         </View>
                     </View>
                     <View style={tw`items-center flex-row`}>
-                        <Button variant={"ghost"} style={tw`flex-1`}>
+                        <Button onPress={toggleModal} variant={"ghost"} style={tw`flex-1`}>
                             Skip
                         </Button>
                         <Button onPress={toggleModal} style={tw`flex-1`}>
@@ -65,7 +66,7 @@ const OrderRating = () => {
             </View>
             <SuccessModal modalVisible={openSuccessModal} togglePopup={toggleModal} btnTitle={"Back to dashboard"}
                           title={"Thank you!"} onPressBtn={() => {
-                router.push('/home')
+                router.push('/order-history')
                 toggleModal()
             }}/>
         </View>

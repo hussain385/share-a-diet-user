@@ -11,12 +11,13 @@ import Clock from "@/assets/icons/clock-circle.svg";
 import ArrowRight from "@/assets/icons/arrow-right-orrange.svg";
 import Star from "@/assets/icons/star.svg"
 import Chat from "@/assets/icons/chat.svg";
-import {screen_width} from "../../../constants/common";
+import {isIOS, screen_height, screen_width} from "../../../constants/common";
 import Fonts from "../../../constants/fonts";
 import MealCard from "@/components/cards/meal-card.component";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import BagWhite from "@/assets/icons/bag-white.svg";
 import {useRouter} from "expo-router";
+import BackBtn from "@/components/common/BackBtn";
 
 const MealDetails = () => {
     const [numberItem, setNumberItem] = useState<number>(1)
@@ -31,6 +32,7 @@ const MealDetails = () => {
                 <TouchableOpacity style={tw`bg-white absolute bottom-3 right-3 rounded-full p-2`}>
                     <Chat />
                 </TouchableOpacity>
+                <BackBtn customOnPress={() => router.push('/home')} style={[tw`absolute left-5`, {top: isIOS() ? screen_height * 0.07 : 14}]}/>
             </View>
             <UserInfoAvatar picture={order.user.avatar} name={order.user.name} distance={`${order.user.distance}`}/>
             <View style={tw`flex-row justify-between items-center`}>
@@ -72,7 +74,7 @@ const MealDetails = () => {
                 <TouchableOpacity onPress={() => setNumberItem(numberItem + 1)} style={tw`border rounded-full w-10 h-10 border-themeBorderColor bg-white items-center justify-center`}>
                     <AntDesign name="plus" size={24} color="black" />
                 </TouchableOpacity>
-                <Button onPress={() => router.push("/pickup-info")} style={tw`flex-1`} icon={<BagWhite />}>
+                <Button onPress={() => router.push(isDelivery ? "/delivery-info" : "/pickup-info")} style={tw`flex-1`} icon={<BagWhite />}>
                     Order Now
                 </Button>
             </View>
@@ -85,6 +87,18 @@ const MealDetails = () => {
             </View>
             <ScrollView horizontal contentContainerStyle={tw`gap-4 p-1`}>
                 {OrdersArray.map(order => <MealCard order={order} key={order.orderId}/>)}
+            </ScrollView>
+            <Text variant={'body-lg-bold'}>Previous Orders from Sying Ku</Text>
+            <ScrollView horizontal contentContainerStyle={tw`gap-4 p-1`}>
+                <View style={tw`flex-row items-center gap-4`}>
+                    <View style={[tw`items-center justify-center h-[60px] w-[60px] bg-white rounded-lg`, commonStyles.shadow]}>
+                        <Text style={tw`text-center`}>June{'\n'}12</Text>
+                    </View>
+                    <View style={tw`justify-start gap-1`}>
+                        <Text variant={'body-lg-bold'}>Chicken Burger</Text>
+                        <Text variant={'body-lg-bold'} style={tw`text-secondary200`}>SGD 12.00</Text>
+                    </View>
+                </View>
             </ScrollView>
         </View>
     );

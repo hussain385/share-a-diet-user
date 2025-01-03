@@ -35,9 +35,9 @@ const Home = () => {
                     title={''}
                     right={<View style={tw`flex-row gap-2 items-center`}>
                         <Button onPress={() => router.push('/notifications')} variant={'ghost'} style={[tw`w-[40px] h-[40px] bg-white rounded-full`, commonStyles.shadow]}><Bell/></Button>
-                        <Button onPress={() => router.push('/notifications')} variant={'ghost'} style={[tw`w-[40px] h-[40px] bg-white rounded-full`, commonStyles.shadow]}><Bag /></Button>
-                        <Avatar size={40} name={'Lee Chang'}
-                                pictureUrl={"https://s3-alpha-sig.figma.com/img/bb37/c0d8/0b097a885cf1c4ea4d9f1bac1c110278?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SfU280ixD02kyRqsS3QGjgSCYzy1y4FS2ndAwLEjrzTwRuuWlwz1Jq3iyrZ2d1zhednmUjE535Pn00eQy6nAf9zjfn9IVC4fASuGovipf87Cr9UreVfz2lhZ-NlGHASRoa1P0E3gax6QVj1bjuTV-Yp9KvzlOHa6j9b~DfX9Exg8v-yfle5BVX7XVtrzANQuMjrN-ySnMzlYHUfblg1VGtjtcwltCJZXPWqPQblbSD7hOTjv2ivt7u6WVQBCLMQR9YVupBQPbzON1ho6gBHo6dO2ZSVAhrAu4a66IvliUfTDz20aJY~Q5NMygmOan4Yf7JyRlhShfiFSKLQm683dBA__"}/>
+                        <Button onPress={() => router.push('/pickup-info')} variant={'ghost'} style={[tw`w-[40px] h-[40px] bg-white rounded-full`, commonStyles.shadow]}><Bag /></Button>
+                        <Avatar onClick={() => router.push('/user-profile')} size={40} name={'Lee Chang'}
+                                pictureUrl={"https://s3-alpha-sig.figma.com/img/d3b2/1420/be0c601433a270f2eab8f555d444da52?Expires=1736726400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nd-qJE3iu63K2gVltECJ4lY4ylKr8Z5dSR4Gl6ISHsjup3nybyEpMGH98YIPAkteWyXdL6YWVhm9TodM54Re8iAVweykE8z5OfRtMmoECh70sK8E1M3HPJl7~3k01G-xBa7ZneGtNHn1g5KlojIh9ovBem6ruKyYKhBNGRd4HxzTbihRj-3EsJ2aBM-XqXswY~2B4nn0~Ejo49vpS4RWBI1xqp1Vug2BAZZcsvI~1t-O5l01cFMSCPOLtETER2DWn4m0MUBJsL8CDYxk~0~-VmDyEv~76xivAOrps4whpI0T0cT31GGuqnCBat1hPZtoBlDcyVqPA3br9-~Elf1d6Q__"}/>
                     </View>}
                     left={<Button variant={'ghost'} onPress={() => navigation.openDrawer()}>
                         <Menu/>
@@ -51,7 +51,7 @@ const Home = () => {
                             <AntDesign name="caretdown" size={14} color="black" />
                         </View>
                         <View style={[tw`p-2.5 rounded-full items-center flex-row bg-white gap-4`, commonStyles.shadow]}>
-                            <Avatar name={""} pictureUrl={"https://s3-alpha-sig.figma.com/img/bb37/c0d8/0b097a885cf1c4ea4d9f1bac1c110278?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SfU280ixD02kyRqsS3QGjgSCYzy1y4FS2ndAwLEjrzTwRuuWlwz1Jq3iyrZ2d1zhednmUjE535Pn00eQy6nAf9zjfn9IVC4fASuGovipf87Cr9UreVfz2lhZ-NlGHASRoa1P0E3gax6QVj1bjuTV-Yp9KvzlOHa6j9b~DfX9Exg8v-yfle5BVX7XVtrzANQuMjrN-ySnMzlYHUfblg1VGtjtcwltCJZXPWqPQblbSD7hOTjv2ivt7u6WVQBCLMQR9YVupBQPbzON1ho6gBHo6dO2ZSVAhrAu4a66IvliUfTDz20aJY~Q5NMygmOan4Yf7JyRlhShfiFSKLQm683dBA__"} size={50}/>
+                            <Avatar name={""} pictureUrl={"https://s3-alpha-sig.figma.com/img/d3b2/1420/be0c601433a270f2eab8f555d444da52?Expires=1736726400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nd-qJE3iu63K2gVltECJ4lY4ylKr8Z5dSR4Gl6ISHsjup3nybyEpMGH98YIPAkteWyXdL6YWVhm9TodM54Re8iAVweykE8z5OfRtMmoECh70sK8E1M3HPJl7~3k01G-xBa7ZneGtNHn1g5KlojIh9ovBem6ruKyYKhBNGRd4HxzTbihRj-3EsJ2aBM-XqXswY~2B4nn0~Ejo49vpS4RWBI1xqp1Vug2BAZZcsvI~1t-O5l01cFMSCPOLtETER2DWn4m0MUBJsL8CDYxk~0~-VmDyEv~76xivAOrps4whpI0T0cT31GGuqnCBat1hPZtoBlDcyVqPA3br9-~Elf1d6Q__"} size={50}/>
                             <Text variant={"body-lg-bold"} style={tw`text-head-xs`}>Chicken Noodle Soup</Text>
                         </View>
                         <DeliveryStepComponent />

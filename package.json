@@ -10,7 +10,7 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "build:androidRelease": "cd android && ./gradlew clean && ./gradlew assembleRelease && cd .."
+    "build:androidRelease": "cd android && ./gradlew assembleRelease && cd .."
   },
   "jest": {
     "preset": "jest-expo"
