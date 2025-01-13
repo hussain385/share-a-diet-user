@@ -53,12 +53,12 @@ const Introduction = () => {
     };
 
     return (
-        <View>
+        <View style={tw`flex-1`}>
             <FlatList
                 ref={flatListRef}
                 data={Slides}
                 renderItem={({item}) => (
-                    <View style={[tw`flex-col items-center justify-center`, {width: screen_width, height: screen_height * 0.85}]}>
+                    <View style={[tw`flex-col items-center justify-center`, {width: screen_width, height: screen_height * 0.9}]}>
                         <Image source={item.img} style={tw`w-[207px] h-[207px] mb-12`}/>
                         <Text variant={'title-lg'}>{item.title}</Text>
                         <Text variant={'body-lg'} style={[tw`text-center mt-3`, {fontFamily: Fonts.Roboto.Regular}]}>{item.description}</Text>
@@ -71,14 +71,14 @@ const Introduction = () => {
                 onScroll={handleOnScroll}
                 onViewableItemsChanged={handleOnViewableItemsChanged}
                 viewabilityConfig={{
-                    itemVisiblePercentThreshold: 1, // High sensitivity
+                    itemVisiblePercentThreshold: 1,
                 }}
-                decelerationRate="fast" // Faster scroll sensitivity
-                snapToInterval={screen_width} // Ensures snapping aligns perfectly
-                scrollEventThrottle={16} // Increased touch responsiveness
+                decelerationRate="fast"
+                snapToInterval={screen_width}
+                scrollEventThrottle={16}
             />
 
-            <View style={tw`absolute bottom-0 w-full flex-col items-center justify-center gap-6`}>
+            <View style={tw`absolute bottom-12 w-full flex-col items-center justify-center gap-6`}>
                 <PaginationComponent data={Slides} scrollX={scrollX} index={index} />
                 <Button
                     variant={'filled'}

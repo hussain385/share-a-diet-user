@@ -10,7 +10,7 @@ const Switch = ({isEnabled, toggleSwitch}: componentPropType) => {
     return (
         <SwitchNative
             trackColor={{false: '#E9EAEB', true: '#F36A26'}}
-            thumbColor={isEnabled ? '#f4f3f4' : '#F36A26'}
+            thumbColor={isEnabled ? '#ffffff' : '#ffffff'}
             ios_backgroundColor="#E9EAEB"
             onValueChange={toggleSwitch}
             value={isEnabled}

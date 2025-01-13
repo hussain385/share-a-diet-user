@@ -33,7 +33,7 @@ const SuccessModal = ({modalVisible, togglePopup, title, btnTitle, onPressBtn}: 
                         source={require('@/assets/images/thank-you.png')}
                         style={tw`h-40 w-40`}
                     />
-                    <Button style={tw`w-full`} onPress={onPressBtn}>{btnTitle}</Button>
+                    <Button style={tw`w-10/12 mb-4`} onPress={onPressBtn}>{btnTitle}</Button>
                     <Button onPress={togglePopup} variant={"ghost"} style={tw`absolute top-0 right-3`}>
                         <Cancel />
                     </Button>

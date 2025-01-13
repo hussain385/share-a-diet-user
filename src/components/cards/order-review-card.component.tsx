@@ -16,7 +16,7 @@ type componentPropType = {
     order: typeof OrdersArray[0]
 }
 
-const OrderHistoryCardComponent = ({order}: componentPropType) => {
+const OrderReviewCardComponent = ({order}: componentPropType) => {
     const router = useRouter();
 
     return (
@@ -27,35 +27,41 @@ const OrderHistoryCardComponent = ({order}: componentPropType) => {
                     <Chat />
                 </TouchableOpacity>
             </View>
-            <Text variant={"body-lg-bold"} style={tw`mt-4`}>Order ID: #{order.orderId}</Text>
-            <Text variant={"body-lg"}>Order Date & Time: {order.date}</Text>
-            <View style={tw`my-4`}>
-                <UserInfoAvatar picture={order.user.avatar} name={order.user.name} distance={`${order.user.distance}`}/>
-            </View>
-            <View style={tw`flex-col gap-3`}>
+            <View style={tw`p-2 gap-3 mt-4`}>
                 <Text variant={"title-lg"}>{order.itemName}</Text>
+                <Text variant={"body-lg-bold"}>Order ID: #{order.orderId}</Text>
+                <Text variant={"body-lg"}>Order Date & Time: {order.date}</Text>
                 <Text variant={"body-lg"}>Quantity: {order.quantity}</Text>
                 <View style={tw`flex-row gap-2 items-center`}>
                     <Text variant={'body-lg'}>
-                        Rating:
-                    </Text>
-                    <Star />
-                    <Text variant={'body-lg'}>
-                        4.9
-                    </Text>
-                </View>
-                <View style={tw`flex-row gap-2 items-center`}>
-                    <Text variant={'body-lg'}>
-                        Earned:
+                        Price:
                     </Text>
                     <Text variant={'body-lg'} style={tw`text-secondary200`}>
                         SGD {order.totalPrice}
                     </Text>
                 </View>
+                <View style={tw`justify-between items-center flex-row`}>
+                    <View style={tw`flex-row gap-2 items-center`}>
+                        <Text variant={'body-lg'}>
+                            Your Rating:
+                        </Text>
+                        <Star />
+                        <Text variant={'body-lg'}>
+                            4.9
+                        </Text>
+                    </View>
+                    <TouchableOpacity onPress={() => router.push({pathname: '/order-rating', params: {isFromReview: 'true'}})}>
+                        <Text style={tw`text-secondary200 underline`} variant={'body-lg'}>Edit</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={tw`bg-gray-100 rounded-xl p-2`}>
+                    <Text style={tw`opacity-70`}>
+                        loream ipsum dolor sit amet, con etetet ut sad kdsa sad asdas dasd asd s d fdsvmsikdm
+                    </Text>
+                </View>
             </View>
-            <Button onPress={() => router.push("/(Session)/(Order)/order-details")} variant={'outlined'} style={tw`my-4 mt-6`}>More Details</Button>
         </View>
     );
 };
 
-export default OrderHistoryCardComponent;
+export default OrderReviewCardComponent;

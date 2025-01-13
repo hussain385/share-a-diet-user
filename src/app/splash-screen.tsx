@@ -31,7 +31,7 @@ const SplashScreen = () => {
     }, []);
 
     return (
-        <View style={tw`bg-primary flex-1 flex-col justify-between items-center`}>
+        <View style={tw`bg-primary flex-1 flex-col justify-between items-center pb-10`}>
             <View/>
             <Image source={require('@/assets/images/logo.png')} style={tw`w-[207px] h-[207px] mt-8`}/>
             <View style={tw`w-10/12 flex-col gap-8 mb-4`}>

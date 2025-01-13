@@ -12,6 +12,7 @@ import FilterBtnComponent from "@/components/home/filter-btn.component";
 import {screen_height} from "@/constants/common";
 import OrderHistoryCardComponent from "@/components/cards/order-history-card.component";
 import {useRouter} from "expo-router";
+import SearchInput from "@/components/common/SearchInput";
 
 const OrderHistory = () => {
     const [filter, setFilter] = useState<string>('All');
@@ -20,7 +21,7 @@ const OrderHistory = () => {
     return (
         <View style={tw`flex-col gap-6`}>
             <AppBar title={'Order history'} left={<BackBtn customOnPress={() => router.push("/home")}/>} right={<View style={tw`w-11`}/>}/>
-            <TextInput icon={<Magnifer />} styleCustom={"-mt-2 w-[90%] self-center"} rightIcon={<Calendar />} placeholder={"Search Orders"}/>
+            <SearchInput />
             <FlatList
                 data={filters}
                 contentContainerStyle={tw`gap-2 pb-2 px-[5%]`}

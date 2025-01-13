@@ -14,7 +14,7 @@ const AuthLayout = () => {
             <Tabs.Screen
                 name="list"
                 options={{
-                    title: 'List',
+                    title: 'History',
                 }}
             />
             <Tabs.Screen

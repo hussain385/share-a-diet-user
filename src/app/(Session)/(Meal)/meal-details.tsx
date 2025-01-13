@@ -28,7 +28,7 @@ const MealDetails = () => {
     return (
         <View style={tw`gap-5`}>
             <View style={[tw`relative -ml-[5.55%]`, {width: screen_width}]}>
-                <Image source={{uri: order.picture}} style={tw`w-full h-[350px] rounded-xl`}/>
+                <Image source={order.picture} style={tw`w-full h-[350px] rounded-xl`}/>
                 <TouchableOpacity style={tw`bg-white absolute bottom-3 right-3 rounded-full p-2`}>
                     <Chat />
                 </TouchableOpacity>

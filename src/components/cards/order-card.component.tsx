@@ -12,7 +12,7 @@ const OrderCardComponent = () => {
     return (
         <View style={[tw`gap-3 rounded-xl flex-row bg-white p-3`, commonStyles.shadow]}>
             <Image
-                source={{uri: 'https://s3-alpha-sig.figma.com/img/7745/e67f/aaa231e1fb67707d07040f3c29a761b6?Expires=1736726400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T1QGJO75P~uhEDshTYkMf8YmWBA1QQV3NeA~vkG58wQ~PoCx7ga1fz66aSPm9va5cPHKWl4tg1lvBC~bn61-nNwWahyQ~b2kuJnP0ze-yVLULZ-E-RjCdcMA5Lym35MCstdWcqk5RHV7sKll6c9sr5TjXWqN39taoCO7cyKuu6T9QCtgsu3ujolL3q6TdfUHgWuqrVD-cPB4E~rjneGBaSquo2eqjw42EDLSmAoOZdGehDGF~Ybr0OOcv6zoI8HhBpEJWTzy7a~ZdGjD3VNgSkpUTEPeT9IAGZEFwsuMqSOiXcO4znRhCBTGgwfdCAlHS59DMXpoC903jqfs4bLwwA__'}}
+                source={require('@/assets/images/burger.jpg')}
                 style={tw`w-20 h-20 rounded-lg`}
             />
             <View style={tw`justify-between`}>

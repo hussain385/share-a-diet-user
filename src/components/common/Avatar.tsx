@@ -5,7 +5,7 @@ import {commonStyles} from "@/styles/common.styles";
 
 type AvatarProps = {
     name: string;
-    pictureUrl?: string; // Optional profile picture
+    pictureUrl?: string | number; // Optional profile picture
     size?: number; // Avatar size (width and height)
     style?: string; // Additional style for the avatar container (optional)
     onClick?: () => void
@@ -24,7 +24,7 @@ const Avatar: React.FC<AvatarProps> = ({ name, pictureUrl, size = 50, style, onC
     return pictureUrl ? (
         <Pressable onPress={onClick}>
             <Image
-                source={{ uri: pictureUrl }}
+                source={typeof pictureUrl === 'string' ? { uri: pictureUrl } : pictureUrl}
                 style={tw.style(
                     `rounded-full bg-gray-400 ${style || ''}`,
                     {

@@ -31,7 +31,7 @@ const Search = () => {
                 <AppBar title={'Search'} left={<BackBtn customOnPress={() => router.push("/home")}/>} right={<View style={tw`w-11`}/>}/>
                 <View style={{height: screen_height * 0.85}}>
                     <ScrollView contentContainerStyle={tw`px-[5%] pb-36 gap-4`}>
-                        <TextInput icon={<Magnifer />} rightIcon={<Setting />} placeholder={"Search Orders"}/>
+                        <TextInput icon={<Magnifer />} placeholder={"Search Orders"}/>
                         <CategorySectionComponent />
                         <View style={tw`justify-between flex-row`}>
                             <Text variant={"body-lg-bold"}>Meals Near You</Text>

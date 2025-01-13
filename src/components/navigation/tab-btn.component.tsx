@@ -35,7 +35,7 @@ const TabBtnComponent = ({onPress, onLongPress, routeName, isFocused, label}: co
 
     const animatedIconStyle = useAnimatedStyle(() => {
         const scaleValue = interpolate(scale.value, [0, 1], [1, 1.2]);
-        const top = interpolate(scale.value, [0, 1], [-2, -33]);
+        const top = interpolate(scale.value, [0, 1], [-3.5, -33]);
         return {
             // transform: [{ scale: scaleValue }],
             top,

@@ -39,8 +39,7 @@ const UserProfile = () => {
                 <View style={{height: screen_height * 0.85}}>
                     <ScrollView contentContainerStyle={tw`px-[5%] pb-36`}>
                         <View style={tw`flex-row flex-1 gap-4`}>
-                            <Avatar size={65} name={""}
-                                    pictureUrl={"https://s3-alpha-sig.figma.com/img/d3b2/1420/be0c601433a270f2eab8f555d444da52?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=LbLXdMLDCpfKWd6AJfAqrBbjddPSfiH6mFrsPJWUmPz-b622sF7yR2hUgJypm-B30yY~IDKoqaTOeTrK84LZUeJe9Gmt4dN2pkRI5mqluWZ4mqbEValge59GUSH~yObbxKZ8WFv9Vj96rl9bcepJ6tTENMgHfjKw3euF~gjcFw~QIKJlyNPHwsv0rLDrkdW~OiISIA-0p2NoyTDVEfSGq09JZH4iSzgStWBPmwBwB0vORpcG8ywH0kMY00BRyxdiKj2FvqHL1KS5hOAo6~EwYtACLcWvtkBVypFDa7RskvACqGrw~JX1Wn3QWawvKXdvWBR7HA~vuUD-OwP9UY-~2Q__"}/>
+                            <Avatar size={65} name={""} pictureUrl={require('@/assets/images/user.jpg')}/>
                             <View style={tw`flex-row justify-between flex-1`}>
                                 <View style={tw`flex-col flex-1 justify-between`}>
                                     <Text variant={"title-sm"}>Chang LI</Text>
@@ -63,7 +62,7 @@ const UserProfile = () => {
                                 style={tw`bg-secondary100 my-6`} textStyle={tw`text-secondary200`}>
                             Logout
                         </Button>
-                        <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Order)/order-history")}
+                        <AnalyticsLinksComponents onPress={() => router.push("/(Authentication)/(Location)/location-lists")}
                                                   icons={<Location width={24} height={24}/>} label={"My Locations"}
                                                   style={tw`pb-4 px-2 rounded-md`}/>
                         <AnalyticsLinksComponents onPress={() => {}}
@@ -105,12 +104,11 @@ const UserProfile = () => {
                             />
 
                         </View>
-                        <AnalyticsLinksComponents label={"Security"} style={tw`pb-6 px-2 rounded-md`}/>
                         <LabelWithSwitch label={"Push Notification"} style={tw`pb-6 px-2 rounded-md`}/>
                         <LabelWithSwitch label={"Sound"} style={tw`pb-6 px-2 rounded-md`}/>
                         <LabelWithSwitch label={"Automatically Updated"} style={tw`pb-6 px-2 rounded-md`}/>
-                        <AnalyticsLinksComponents label={"Term of Service"} style={tw`pb-6 px-2 rounded-md`}/>
-                        <AnalyticsLinksComponents label={"Privacy Policy"} style={tw`pb-6 px-2 rounded-md`}/>
+                        <AnalyticsLinksComponents onPress={() => router.push('/term-conditions')} label={"Term of Service"} style={tw`pb-6 px-2 rounded-md`}/>
+                        <AnalyticsLinksComponents onPress={() => router.push('/privacy-policy')} label={"Privacy Policy"} style={tw`pb-6 px-2 rounded-md`}/>
                     </ScrollView>
                 </View>
             </View>

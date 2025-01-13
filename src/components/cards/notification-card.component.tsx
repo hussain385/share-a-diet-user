@@ -17,20 +17,16 @@ const NotificationCardComponent = ({order}: componentPropType) => {
     const router = useRouter();
 
     return (
-        <View style={[commonStyles.shadow, tw`rounded-xl p-2 bg-white w-full`]}>
+        <View style={[commonStyles.shadow, tw`rounded-xl p-2 bg-white w-full gap-4 py-4 items-center`]}>
             <Text variant={"title-md"} style={tw`text-center`}>Order Request</Text>
-            <View style={tw`flex-col gap-2 mt-4`}>
-                <Text variant={"body-lg"}>Order Date & Time: {order.date}</Text>
-                <Text variant={"title-lg"}>{order.itemName}</Text>
-                <Text variant={"title-lg"} style={tw`text-secondary200`}>SGD {order.totalPrice}</Text>
-                <Text variant={"body-lg"}>Quantity: {order.quantity}</Text>
-            </View>
-            <View style={tw`my-4 mb-6`}>
-                <UserInfoAvatar picture={order.user.avatar} name={order.user.name} distance={`${order.user.distance}`}/>
-            </View>
-            {order.orderId === '18361' && <Button onPress={() => router.push("/(Session)/(Order)/order-details")} variant={'outlined'}
-                     style={tw`my-4`}>Track Order</Button>}
-            <Button onPress={() => router.push("/chat-screen")} variant={'outlined'} icon={<Chat />} style={tw`mb-4`}>Chat with cook</Button>
+            <Text variant={"title-lg"}>{order.itemName}</Text>
+            <Text variant={"title-lg"} style={tw`text-secondary200`}>SGD {order.totalPrice}</Text>
+            <Text variant={"body-lg"}>Quantity: {order.quantity}</Text>
+            {/*<View style={tw`my-4 mb-6`}>*/}
+            {/*    <UserInfoAvatar picture={order.user.avatar} name={order.user.name} distance={`${order.user.distance}`}/>*/}
+            {/*</View>*/}
+            {order.orderId === '18361' && <Button style={tw`w-full`} onPress={() => router.push("/(Session)/(Order)/order-details")} variant={'outlined'}>Track Order</Button>}
+            <Button style={tw`w-full`} onPress={() => router.push("/chat-screen")} variant={'outlined'} icon={<Chat />}>Chat with cook</Button>
         </View>
     );
 };

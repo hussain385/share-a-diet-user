@@ -21,7 +21,7 @@ const MealCard = ({order}: componentPropType) => {
     return (
         <View style={[commonStyles.shadow, tw`rounded-xl p-2 bg-white gap-2 w-[280px]`]}>
             <View style={tw`relative`}>
-                <Image source={{uri: order.picture}} style={tw`w-full h-[141px] rounded-lg`}/>
+                <Image source={order.picture} style={tw`w-full h-[141px] rounded-lg`}/>
                 <TouchableOpacity style={tw`bg-white absolute bottom-2 right-2 rounded-full p-2`}>
                     <Chat width={16} height={16}/>
                 </TouchableOpacity>

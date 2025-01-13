@@ -11,7 +11,7 @@ import Button from "@/components/common/Button";
 import SuccessModal from "@/components/modals/success.modal";
 import Ratings from "@/components/common/Ratings";
 import useImagePicker from "@/hooks/useImagePicker";
-import {useRouter} from "expo-router";
+import {useLocalSearchParams, useRouter} from "expo-router";
 import {screen_width} from "@/constants/common";
 
 
@@ -26,6 +26,7 @@ const OrderRating = () => {
         toggleImagePickerPopup,
     } = useImagePicker();
     const router = useRouter();
+    const {isFromReview} = useLocalSearchParams();
 
     const toggleModal = useCallback(() => {
         setOpenSuccessModal(!openSuccessModal)
@@ -33,7 +34,7 @@ const OrderRating = () => {
 
     return (
         <View style={tw`h-full pb-10`}>
-            <AppBar title={'Order Rating'} left={<BackBtn/>} right={<View style={tw`w-11`}/>}/>
+            <AppBar title={'Order Rating'} left={<BackBtn customOnPress={isFromReview === 'true' ? () => router.push('/order-review') : undefined}/>} right={<View style={tw`w-11`}/>}/>
             <View style={tw`px-[5%] justify-between flex-1`}>
                 <View style={tw`gap-4`}>
                     <Text variant={"title-md"} style={tw`text-center`}>
@@ -46,27 +47,31 @@ const OrderRating = () => {
                 </View>
                 <View style={tw`gap-5`}>
                     <Ratings size={screen_width * 0.15} rating={ratingStars} onRate={(rating) => setRatingStars(rating)}/>
-                    <View style={tw`bg-inputBgColor rounded-lg`}>
+                    <View style={tw`bg-inputBgColor rounded-lg p-3`}>
                         <TextInput placeholder={"Type your review"} multiline
-                                   style={[tw`h-20 p-3`, {textAlignVertical: "top"}]}/>
-                        <View style={tw`flex-row items-center gap-2 justify-end p-3`}>
+                                   style={[tw`h-20`, {textAlignVertical: "top"}]}/>
+                        <View style={tw`flex-row items-center gap-2 justify-end`}>
                             <Button onPress={openCamera} style={tw`h-6`} variant={"ghost"} icon={<Camera/>}></Button>
-                            <Button onPress={openLibrary} style={tw`h-6`} variant={"ghost"} icon={<Gallery/>}></Button>
+                            <Button onPress={openLibrary} style={tw`h-6`} variant={"ghost"} icon={<Gallery width={22} height={22}/>}></Button>
                         </View>
                     </View>
                     <View style={tw`items-center flex-row`}>
-                        <Button onPress={toggleModal} variant={"ghost"} style={tw`flex-1`}>
-                            Skip
-                        </Button>
+                        {isFromReview === 'true' ? (
+                            <></>
+                        ) : (
+                            <Button onPress={() => router.push('/order-history')} variant={"ghost"} style={tw`flex-1`}>
+                                Skip
+                            </Button>
+                        )}
                         <Button onPress={toggleModal} style={tw`flex-1`}>
                             Submit
                         </Button>
                     </View>
                 </View>
             </View>
-            <SuccessModal modalVisible={openSuccessModal} togglePopup={toggleModal} btnTitle={"Back to dashboard"}
+            <SuccessModal modalVisible={openSuccessModal} togglePopup={toggleModal} btnTitle={isFromReview === 'true' ? 'Close' : "Back to dashboard"}
                           title={"Thank you!"} onPressBtn={() => {
-                router.push('/order-history')
+                router.push(isFromReview === 'true' ? '/order-review' : '/order-history')
                 toggleModal()
             }}/>
         </View>
