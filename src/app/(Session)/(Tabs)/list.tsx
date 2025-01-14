@@ -19,6 +19,7 @@ import Calendar from "@/assets/icons/calendar.svg";
 import {filters, OrdersArray} from "@/data/new-orders";
 import FilterBtnComponent from "@/components/home/filter-btn.component";
 import OrderHistoryCardComponent from "@/components/cards/order-history-card.component";
+import SearchInput from "@/components/common/SearchInput";
 
 const List = () => {
     const [filter, setFilter] = useState("All")
@@ -29,7 +30,7 @@ const List = () => {
         <SafeAreaView>
             <View style={tw`flex-col gap-6`}>
                 <AppBar title={'Order history'} left={<BackBtn customOnPress={() => router.push("/home")}/>} right={<View style={tw`w-11`}/>}/>
-                <TextInput icon={<Magnifer />} styleCustom={"-mt-2 w-[90%] self-center"} rightIcon={<Calendar />} placeholder={"Search Orders"}/>
+                <SearchInput />
                 <FlatList
                     data={filters}
                     contentContainerStyle={tw`gap-2 pb-2 px-[5%]`}

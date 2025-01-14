@@ -81,8 +81,8 @@ importers:
         specifier: 0.76.5
         version: 0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.16)(react@18.3.1)
       react-native-date-picker:
-        specifier: ^5.0.8
-        version: 5.0.8(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)
+        specifier: github:badrey/react-native-date-picker#new-arc-fix
+        version: https://codeload.github.com/badrey/react-native-date-picker/tar.gz/809faeca90f87ce37a3850234b1b952395900d95(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)
       react-native-element-dropdown:
         specifier: ^2.12.2
         version: 2.12.2(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.16)(react@18.3.1))(react@18.3.1)
@@ -4046,8 +4046,9 @@ packages:
       react-native: '*'
       react-native-web: '*'
 
-  react-native-date-picker@5.0.8:
-    resolution: {integrity: sha512-1l4w4+iLuhOZUSyQrt5DclXnNx3RwEyp+wUrSaBfaHr/3FWtRWjLjS0E9FL4FWuq6vn09Hy9hn8lZJ1DmPc9YQ==}
+  react-native-date-picker@https://codeload.github.com/badrey/react-native-date-picker/tar.gz/809faeca90f87ce37a3850234b1b952395900d95:
+    resolution: {tarball: https://codeload.github.com/badrey/react-native-date-picker/tar.gz/809faeca90f87ce37a3850234b1b952395900d95}
+    version: 5.0.4
     peerDependencies:
       react: '>= 17.0.1'
       react-native: '>= 0.64.3'
@@ -10015,7 +10016,7 @@ snapshots:
     transitivePeerDependencies:
       - react-art
 
-  react-native-date-picker@5.0.8(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.16)(react@18.3.1))(react@18.3.1):
+  react-native-date-picker@https://codeload.github.com/badrey/react-native-date-picker/tar.gz/809faeca90f87ce37a3850234b1b952395900d95(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.16)(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-native: 0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.16)(react@18.3.1)
