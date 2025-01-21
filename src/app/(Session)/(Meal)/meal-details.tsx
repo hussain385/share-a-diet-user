@@ -63,7 +63,7 @@ const MealDetails = () => {
             <Text variant={'body-lg-bold'}>Special Instructions</Text>
             <TextInput placeholder={"Add note"} multiline style={[tw`h-20 border border-themeBorderColor p-3 rounded-xl`, {textAlignVertical: "top"}]}/>
             <View style={tw`flex-row gap-4`}>
-                <Button textVariant={"body-lg"} onPress={() => setIsDelivery(true)} style={tw`flex-1 ${isDelivery ? 'bg-secondary200' : 'bg-white'}`} textStyle={tw`${isDelivery ? 'text-white' : 'text-black'}`}>Delivery</Button>
+                {/*<Button textVariant={"body-lg"} onPress={() => setIsDelivery(true)} style={tw`flex-1 ${isDelivery ? 'bg-secondary200' : 'bg-white'}`} textStyle={tw`${isDelivery ? 'text-white' : 'text-black'}`}>Delivery</Button>*/}
                 <Button textVariant={"body-lg"} onPress={() => setIsDelivery(false)} style={tw`flex-1 ${!isDelivery ? 'bg-secondary200' : 'bg-white'}`} textStyle={tw`${!isDelivery ? 'text-white' : 'text-black'}`}>Pickup</Button>
             </View>
             <View style={[tw`p-2 rounded-lg flex-row gap-4 w-full self-center items-center bg-white`, commonStyles.shadow]}>

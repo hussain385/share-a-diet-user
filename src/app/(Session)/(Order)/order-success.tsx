@@ -23,8 +23,8 @@ const OrderSuccess = () => {
                     6:00 pm
                 </Text>
             </View>
-            <Text variant={"body-lg-bold"}>Order delivered successfully!</Text>
-            <Button onPress={() => router.push('/order-rating')} style={tw`w-full`}>Rate your order</Button>
+            <Text variant={"body-lg-bold"}>Order placed successfully!</Text>
+            <Button onPress={() => router.push('/order-history')} style={tw`w-full`}>Close</Button>
         </View>
     );
 };

@@ -61,7 +61,7 @@ const OrderHistoryCardComponent = ({order}: componentPropType) => {
                     </Text>
                 </View>
             </View>
-            <Button onPress={() => router.push({pathname: "/(Session)/(Order)/order-details", params: {route: "/(Session)/(Order)/order-history", noBottom: 'true', status: order.orderStatus, dinningOptions: order.dinningOptions}})} variant={'outlined'} style={tw`my-4 mt-6`}>More Details</Button>
+            <Button onPress={() => router.push({pathname: "/(Session)/(Order)/order-details", params: {route: "/(Session)/(Order)/order-history", noBottom: ['Delivered', 'Picked Up', 'Cancelled'].includes(order.orderStatus) ? 'false' : 'true', status: order.orderStatus, dinningOptions: order.dinningOptions}})} variant={'outlined'} style={tw`my-4 mt-6`}>More Details</Button>
         </View>
     );
 };
