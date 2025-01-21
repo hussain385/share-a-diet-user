@@ -71,10 +71,7 @@ const UserProfile = () => {
                         <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Chat)/chat")}
                                                   icons={<ChatDots width={24} height={24}/>} label={"Messages"}
                                                   style={tw`pb-4 px-2 rounded-md`} count={1}/>
-                        <AnalyticsLinksComponents onPress={() => router.push("/faqs")}
-                                                  icons={<ShieldUser width={24} height={24}/>} label={"Security"}
-                                                  style={tw`pb-4 px-2 rounded-md`}/>
-                        <AnalyticsLinksComponents onPress={() => router.push("/faqs")}
+                        <AnalyticsLinksComponents onPress={() => router.push({pathname: "/faqs", params: {route: "/user-profile"}})}
                                                   icons={<QuestionCircle width={24} height={24}/>} label={"FAQs"}
                                                   style={tw`pb-4 px-2 rounded-md`}/>
                         <View style={tw`mx-4 my-2`}>

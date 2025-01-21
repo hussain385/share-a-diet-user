@@ -25,8 +25,8 @@ const NotificationCardComponent = ({order}: componentPropType) => {
             {/*<View style={tw`my-4 mb-6`}>*/}
             {/*    <UserInfoAvatar picture={order.user.avatar} name={order.user.name} distance={`${order.user.distance}`}/>*/}
             {/*</View>*/}
-            {order.orderId === '18361' && <Button style={tw`w-full`} onPress={() => router.push("/(Session)/(Order)/order-details")} variant={'outlined'}>Track Order</Button>}
-            <Button style={tw`w-full`} onPress={() => router.push("/chat-screen")} variant={'outlined'} icon={<Chat />}>Chat with cook</Button>
+            {order.orderId === '18361' && <Button style={tw`w-full`} onPress={() => router.push({pathname: "/(Session)/(Order)/order-details", params: {route: "/(Session)/(Notification)/notifications", noBottom: 'true', status: order.orderStatus, dinningOptions: order.dinningOptions}})} variant={'outlined'}>Track Order</Button>}
+            <Button style={tw`w-full`} onPress={() => router.push({pathname: "/chat-screen", params: {route: "/(Session)/(Notification)/notifications"}})} variant={'outlined'} icon={<Chat />}>Chat with cook</Button>
         </View>
     );
 };

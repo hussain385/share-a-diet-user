@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {FlatList, Keyboard, KeyboardAvoidingView, Platform, TouchableOpacity, View} from "react-native";
 import {screen_height, screen_width} from "@/constants/common";
 import tw from "@/utils/tailwind";
-import {useRouter} from "expo-router";
+import {useLocalSearchParams, useRouter} from "expo-router";
 import AppBar from "@/components/common/AppBar";
 import BackBtn from "@/components/common/BackBtn";
 import Avatar from "@/components/common/Avatar";
@@ -29,6 +29,7 @@ const ChatScreen = () => {
         isImagePickerPopupVisible,
         toggleImagePickerPopup,
     } = useImagePicker();
+    const {route} = useLocalSearchParams();
 
     useEffect(() => {
         const keyboardDidShow = () => {
@@ -68,7 +69,7 @@ const ChatScreen = () => {
                 <View style={tw`bg-white gap-4 pb-4`}>
                     <AppBar
                         title="Messages"
-                        left={<BackBtn customOnPress={() => router.push('/chat')} />}
+                        left={<BackBtn customOnPress={() => route ? router.push(route as any) : router.push("/home")} />}
                         right={<View style={tw`w-11`} />}
                     />
 
@@ -77,7 +78,7 @@ const ChatScreen = () => {
                         <View style={tw`flex-row gap-3 items-center`}>
                             <Avatar
                                 name="John"
-                                pictureUrl="https://s3-alpha-sig.figma.com/img/5e93/fc79/647a008768064652aafb8b860bdbd078?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DsADjUbO63Xj~DFxh38fFG0B6L9X2j2Fb~QYiEgRmUyLvBQIAnL5blcELYQhZ~F~Xcr6-sF7fKfMeOp8DmbTCmSfcxVy45tC1pS1~M4nlTpqkl06vkYiIdq4fTZZ3Bg3b9xg3wFXKNHbOIhlRPULIRPAubb7BYsHGrQCswEsgplDLsDIxI~S8RExeVawalua2ctXgfxX2KD6mh1~MyZzSvFiugvP0Gn8n6T3x6q3J01WPdof8wCF~RKHqQStAL7-GvnphI5PrznCC0ocfjdJk3d0h7jiFIjLof3oho8vAiDupAjX5Fca9l4TkHBy8q05TQ5DgTSim7Z95zNy1SFfEw__"
+                                pictureUrl={require('@/assets/images/user.jpg')}
                                 size={48}
                             />
                             <View style={tw`gap-1.5`}>
