@@ -40,25 +40,33 @@ const OrderReviewCardComponent = ({order}: componentPropType) => {
                         SGD {order.totalPrice}
                     </Text>
                 </View>
-                <View style={tw`justify-between items-center flex-row`}>
-                    <View style={tw`flex-row gap-2 items-center`}>
-                        <Text variant={'body-lg'}>
-                            Your Rating:
-                        </Text>
-                        <Star />
-                        <Text variant={'body-lg'}>
-                            4.9
-                        </Text>
-                    </View>
-                    <TouchableOpacity onPress={() => router.push({pathname: '/order-rating', params: {isFromReview: 'true'}})}>
-                        <Text style={tw`text-secondary200 underline`} variant={'body-lg'}>Edit</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={tw`bg-gray-100 rounded-xl p-2`}>
-                    <Text style={tw`opacity-70`}>
-                        loream ipsum dolor sit amet, con etetet ut sad kdsa sad asdas dasd asd s d fdsvmsikdm
-                    </Text>
-                </View>
+                {order.orderStatus === 'New' ? (
+                    <Button onPress={() => router.push({pathname: '/order-rating', params: {isFromReview: 'true'}})}>
+                        Add review
+                    </Button>
+                ) : (
+                  <>
+                      <View style={tw`justify-between items-center flex-row`}>
+                          <View style={tw`flex-row gap-2 items-center`}>
+                              <Text variant={'body-lg'}>
+                                  Your Rating:
+                              </Text>
+                              <Star />
+                              <Text variant={'body-lg'}>
+                                  4.9
+                              </Text>
+                          </View>
+                          <TouchableOpacity onPress={() => router.push({pathname: '/order-rating', params: {isFromReview: 'true'}})}>
+                              <Text style={tw`text-secondary200 underline`} variant={'body-lg'}>Edit</Text>
+                          </TouchableOpacity>
+                      </View>
+                      <View style={tw`bg-gray-100 rounded-xl p-2`}>
+                          <Text style={tw`opacity-70`}>
+                              loream ipsum dolor sit amet, con etetet ut sad kdsa sad asdas dasd asd s d fdsvmsikdm
+                          </Text>
+                      </View>
+                  </>
+                )}
             </View>
         </View>
     );

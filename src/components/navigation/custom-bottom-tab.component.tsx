@@ -6,13 +6,14 @@ import {useTheme} from "@react-navigation/core";
 import {useLinkBuilder} from "@react-navigation/native";
 import {commonStyles} from "@/styles/common.styles";
 import TabBtnComponent from "@/components/navigation/tab-btn.component";
+import {isIOS} from "@/constants/common";
 
 const CustomBottomTabComponent = (props: BottomTabBarProps) => {
     const { colors } = useTheme();
     const { buildHref } = useLinkBuilder();
 
     return (
-        <View style={[tw`absolute bottom-10 flex-row justify-between items-center bg-white self-center py-2 rounded-2xl w-10/12`, commonStyles.shadow]}>
+        <View style={[tw`absolute bottom-0 flex-row justify-between items-center bg-white self-center py-2 ${isIOS() ? "pb-5" : "pb-4"} w-full`, commonStyles.shadow]}>
             {props.state.routes.map((route, index) => {
                 const { options } = props.descriptors[route.key];
                 const label =

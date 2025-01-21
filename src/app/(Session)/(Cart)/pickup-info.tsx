@@ -49,8 +49,8 @@ const PickupInfo = () => {
             </ScrollView>
             <View style={[tw`p-2 rounded-lg flex-row gap-4 w-[90%] self-center items-center bg-white absolute bottom-3`, commonStyles.shadow]}>
                 <Text variant={"title-lg"} style={tw`text-center flex-1`}>SGD 18.00</Text>
-                <Button onPress={() => router.push('/track-order')} style={tw`flex-1`}>
-                    Order Now
+                <Button onPress={() => router.push('/order-history')} style={tw`flex-1`}>
+                    Complete Order
                 </Button>
             </View>
         </View>

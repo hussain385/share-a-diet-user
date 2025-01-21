@@ -20,7 +20,7 @@ const RegistrationComplete = () => {
                     Lorem ipsum dolor sit amet consectetur. Condimentum lacus nulla vestibulum in enim malesuada et est id. Enim facilisi sagittis et donec urna in. Malesuada elementum in facilisi augue tortor tellus. Suspendisse libero aliquet et pellentesque volutpat nunc.
                 </Text>
             </View>
-            <Button style={tw`py-4`} onPress={() => router.push('/(Session)/(Tabs)/home')}>
+            <Button onPress={() => router.push('/(Session)/(Tabs)/home')}>
                 Next
             </Button>
         </View>

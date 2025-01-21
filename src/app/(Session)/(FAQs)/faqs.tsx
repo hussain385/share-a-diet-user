@@ -19,7 +19,7 @@ const FAQs = () => {
     return (
         <SafeAreaView style={tw`gap-4 h-11/12`}>
             <AppBar style={tw`pt-3`} title={'FAQs'} left={<BackBtn customOnPress={() => router.push("/home")}/>} right={<View style={tw`w-11`}/>}/>
-            <TextInput styleCustom={'w-[90%] self-center'} icon={<Magnifer />} rightIcon={<Calendar />} placeholder={"Search questions"}/>
+            <TextInput styleCustom={'w-[90%] self-center'} icon={<Magnifer />} placeholder={"Search questions"}/>
             <FlatList data={faqs} renderItem={({item}) => <FAQsCard {...item}/>} contentContainerStyle={tw`px-[5%] gap-2`}/>
             <View style={tw`gap-3 absolute bottom-0 right-5`}>
                 <Button style={tw`w-12 h-12`} icon={<LetterOutline />}></Button>

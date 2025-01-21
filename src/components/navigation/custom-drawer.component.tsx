@@ -53,7 +53,6 @@ const CustomDrawerComponent = (props: DrawerContentComponentProps) => {
             <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Review)/order-review")} icons={<AntDesign name="staro" size={20} color="black" />} label={"Reviews"} style={tw`pb-4 px-2 rounded-md`}/>
             <AnalyticsLinksComponents onPress={() => router.push("/location-lists")} icons={<Location width={20} height={20}/>} label={"My Location"} style={tw`pb-4 px-2 rounded-md`}/>
             <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Chat)/chat")} icons={<ChatDots width={20} height={20}/>} label={"Messages"} style={tw`pb-4 px-2 rounded-md`} count={1}/>
-            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(FAQs)/faqs")} icons={<ShieldUser width={20} height={20}/>} label={"Security"} style={tw`pb-4 px-2 rounded-md`}/>
             <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(FAQs)/faqs")} icons={<QuestionCircle width={20} height={20}/>} label={"FAQs"} style={tw`pb-4 px-2 rounded-md`}/>
             <View style={tw`mx-4 my-2`}>
                 <View style={tw`h-px flex-1 bg-themeBorderColor`}/>

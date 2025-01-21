@@ -26,7 +26,7 @@ const AuthLayout = () => {
             <Tabs.Screen
                 name="user-profile"
                 options={{
-                    title: 'User',
+                    title: 'Profile',
                 }}
             />
         </Tabs>

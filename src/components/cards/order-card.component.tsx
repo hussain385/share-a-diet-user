@@ -6,7 +6,7 @@ import Text from "@/components/common/Text";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Fonts from "@/constants/fonts";
 
-const OrderCardComponent = () => {
+const OrderCardComponent = ({showBtn}: {showBtn: boolean}) => {
     const [numberItem, setNumberItem] = useState<number>(1)
 
     return (
@@ -18,14 +18,18 @@ const OrderCardComponent = () => {
             <View style={tw`justify-between`}>
                 <Text variant={"body-sm"}>Chicken Noodle Soup</Text>
                 <Text variant={"body-lg"} style={tw`text-secondary200`}>SGD 15.99 <Text>x {numberItem}</Text></Text>
-                <View style={tw`flex-row gap-2`}>
-                    <TouchableOpacity disabled={numberItem === 1} onPress={() => setNumberItem(numberItem - 1)} style={tw`border rounded-full w-7 h-7 border-themeBorderColor bg-white items-center justify-center`}>
-                        <AntDesign name="minus" size={18} color="black" />
-                    </TouchableOpacity>
-                    <Text variant={"body-lg"} style={{fontFamily: Fonts.Roboto.Regular, marginTop: 4}}>{numberItem}</Text>
-                    <TouchableOpacity onPress={() => setNumberItem(numberItem + 1)} style={tw`border rounded-full w-7 h-7 border-themeBorderColor bg-white items-center justify-center`}>
-                        <AntDesign name="plus" size={18} color="black" />
-                    </TouchableOpacity>
+                <View style={tw`flex-row gap-2 min-h-7`}>
+                    {showBtn && (
+                      <>
+                          <TouchableOpacity disabled={numberItem === 1} onPress={() => setNumberItem(numberItem - 1)} style={tw`border rounded-full w-7 h-7 border-themeBorderColor bg-white items-center justify-center`}>
+                              <AntDesign name="minus" size={18} color="black" />
+                          </TouchableOpacity>
+                          <Text variant={"body-lg"} style={{fontFamily: Fonts.Roboto.Regular, marginTop: 4}}>{numberItem}</Text>
+                          <TouchableOpacity onPress={() => setNumberItem(numberItem + 1)} style={tw`border rounded-full w-7 h-7 border-themeBorderColor bg-white items-center justify-center`}>
+                              <AntDesign name="plus" size={18} color="black" />
+                          </TouchableOpacity>
+                      </>
+                    )}
                 </View>
             </View>
         </View>
