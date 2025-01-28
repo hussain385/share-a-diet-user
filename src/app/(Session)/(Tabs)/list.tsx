@@ -29,7 +29,7 @@ const List = () => {
     return (
         <SafeAreaView>
             <View style={tw`flex-col gap-6`}>
-                <AppBar title={'Order history'} left={<BackBtn customOnPress={() => router.push("/home")}/>} right={<View style={tw`w-11`}/>}/>
+                <AppBar title={'Order history'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
                 <SearchInput />
                 <FlatList
                     data={filters}

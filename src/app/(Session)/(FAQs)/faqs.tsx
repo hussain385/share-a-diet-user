@@ -5,21 +5,15 @@ import AppBar from "@/components/common/AppBar";
 import BackBtn from "@/components/common/BackBtn";
 import faqs from "@/data/faqs";
 import FAQsCard from "@/components/cards/faqs-card.component";
-import {useLocalSearchParams, useRouter} from "expo-router";
 import Magnifer from "@/assets/icons/magnifer.svg";
-import Calendar from "@/assets/icons/calendar.svg";
 import LetterOutline from "@/assets/icons/letter-outline.svg";
-import PhoneCalling from "@/assets/icons/phone-calling.svg";
 import TextInput from "@/components/common/TextInput";
 import Button from "@/components/common/Button";
 
 const FAQs = () => {
-    const router = useRouter();
-    const {route} = useLocalSearchParams();
-
     return (
         <SafeAreaView style={tw`gap-4 h-11/12`}>
-            <AppBar style={tw`pt-3`} title={'FAQs'} left={<BackBtn customOnPress={() => route ? router.push(route as any) : router.push("/home")}/>} right={<View style={tw`w-11`}/>}/>
+            <AppBar style={tw`pt-3`} title={'FAQs'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
             <TextInput styleCustom={'w-[90%] self-center'} icon={<Magnifer />} placeholder={"Search questions"}/>
             <FlatList data={faqs} renderItem={({item}) => <FAQsCard {...item}/>} contentContainerStyle={tw`px-[5%] gap-2`}/>
             <View style={tw`gap-3 absolute bottom-0 right-5`}>

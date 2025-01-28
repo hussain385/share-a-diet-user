@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {FlatList, Keyboard, KeyboardAvoidingView, Platform, TouchableOpacity, View} from "react-native";
+import {FlatList, Keyboard, KeyboardAvoidingView, Platform, SafeAreaView, TouchableOpacity, View} from "react-native";
 import {screen_height, screen_width} from "@/constants/common";
 import tw from "@/utils/tailwind";
 import {useLocalSearchParams, useRouter} from "expo-router";
@@ -20,7 +20,6 @@ import ImagePickerComponent from "@/components/common/ImagePicker";
 
 const ChatScreen = () => {
     const [keyboardVisible, setKeyboardVisible] = useState(false);
-    const router = useRouter();
     const flatListRef = useRef<FlatList>(null);
     const {
         image,
@@ -29,7 +28,6 @@ const ChatScreen = () => {
         isImagePickerPopupVisible,
         toggleImagePickerPopup,
     } = useImagePicker();
-    const {route} = useLocalSearchParams();
 
     useEffect(() => {
         const keyboardDidShow = () => {
@@ -61,64 +59,66 @@ const ChatScreen = () => {
     }, [messages, keyboardVisible]);
 
     return (
-        <KeyboardAvoidingView
-            style={tw`flex-1 bg-[#0D12170D]`}
-            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        >
-            <View style={tw`flex-1 gap-4`}>
-                <View style={tw`bg-white gap-4 pb-4`}>
-                    <AppBar
-                        title="Messages"
-                        left={<BackBtn customOnPress={() => route ? router.push(route as any) : router.push("/home")} />}
-                        right={<View style={tw`w-11`} />}
-                    />
+        <SafeAreaView>
+            <KeyboardAvoidingView
+                style={tw`flex-1 bg-[#0D12170D]`}
+                behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            >
+                <View style={tw`flex-1 gap-4`}>
+                    <View style={tw`bg-white gap-4 pb-4`}>
+                        <AppBar
+                            title="Messages"
+                            left={<BackBtn />}
+                            right={<View style={tw`w-11`} />}
+                        />
 
-                    {/* Header Section */}
-                    <View style={tw`flex-row gap-3 items-center px-[5%] justify-between`}>
-                        <View style={tw`flex-row gap-3 items-center`}>
-                            <Avatar
-                                name="John"
-                                pictureUrl={require('@/assets/images/user.jpg')}
-                                size={48}
-                            />
-                            <View style={tw`gap-1.5`}>
-                                <Text variant="body-lg-bold">John Doe</Text>
-                                <View style={tw`flex-row gap-1`}>
-                                    <Text>Cook</Text>
+                        {/* Header Section */}
+                        <View style={tw`flex-row gap-3 items-center px-[5%] justify-between`}>
+                            <View style={tw`flex-row gap-3 items-center`}>
+                                <Avatar
+                                    name="John"
+                                    pictureUrl={require('@/assets/images/user.jpg')}
+                                    size={48}
+                                />
+                                <View style={tw`gap-1.5`}>
+                                    <Text variant="body-lg-bold">John Doe</Text>
+                                    <View style={tw`flex-row gap-1`}>
+                                        <Text>Cook</Text>
+                                    </View>
                                 </View>
                             </View>
+                            {/*<TouchableOpacity*/}
+                            {/*    style={[tw`rounded-full items-center justify-center bg-white w-10 h-10`]}*/}
+                            {/*>*/}
+                            {/*    <Phone />*/}
+                            {/*</TouchableOpacity>*/}
                         </View>
-                        {/*<TouchableOpacity*/}
-                        {/*    style={[tw`rounded-full items-center justify-center bg-white w-10 h-10`]}*/}
-                        {/*>*/}
-                        {/*    <Phone />*/}
-                        {/*</TouchableOpacity>*/}
+                    </View>
+
+                    {/* FlatList */}
+                    <FlatList
+                        contentContainerStyle={[tw`px-[5%]`]}
+                        data={messages}
+                        renderItem={({ item }) => <MessageComponent message={item} />}
+                        ref={flatListRef}
+                        onContentSizeChange={scrollToBottom} // Scroll to bottom when content changes
+                        onLayout={scrollToBottom} // Scroll to bottom on initial render
+                    />
+
+                    {/* Input Section */}
+                    <View style={tw`flex-row bg-white gap-3 px-[5%] items-center py-5`}>
+                        <Button onPress={toggleImagePickerPopup} icon={<Plus />} style={tw`bg-white w-10 h-10`} />
+                        <TextInput
+                            placeholder="Type here..."
+                            mainContainer={tw`flex-1`}
+                            styleCustom={"px-0 pr-3 h-12"}
+                        />
+                        <Button icon={<Plain />} style={tw`rounded-full w-10 h-10`} />
                     </View>
                 </View>
-
-                {/* FlatList */}
-                <FlatList
-                    contentContainerStyle={[tw`px-[5%]`]}
-                    data={messages}
-                    renderItem={({ item }) => <MessageComponent message={item} />}
-                    ref={flatListRef}
-                    onContentSizeChange={scrollToBottom} // Scroll to bottom when content changes
-                    onLayout={scrollToBottom} // Scroll to bottom on initial render
-                />
-
-                {/* Input Section */}
-                <View style={tw`flex-row bg-white gap-3 px-[5%] items-center py-5`}>
-                    <Button onPress={toggleImagePickerPopup} icon={<Plus />} style={tw`bg-white w-10 h-10`} />
-                    <TextInput
-                        placeholder="Type here..."
-                        mainContainer={tw`flex-1`}
-                        styleCustom={"px-0 pr-3 h-12"}
-                    />
-                    <Button icon={<Plain />} style={tw`rounded-full w-10 h-10`} />
-                </View>
-            </View>
-            <ImagePickerComponent modalVisible={isImagePickerPopupVisible} toggleImagePickerPopup={toggleImagePickerPopup} openCamera={openCamera} openLibrary={openLibrary}/>
-        </KeyboardAvoidingView>
+                <ImagePickerComponent modalVisible={isImagePickerPopupVisible} toggleImagePickerPopup={toggleImagePickerPopup} openCamera={openCamera} openLibrary={openLibrary}/>
+            </KeyboardAvoidingView>
+        </SafeAreaView>
     );
 };
 

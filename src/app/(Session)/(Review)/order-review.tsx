@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FlatList, View} from "react-native";
+import {FlatList, SafeAreaView, View} from "react-native";
 import TextInput from "@/components/common/TextInput";
 import Calendar from "@/assets/icons/calendar.svg";
 import AppBar from "@/components/common/AppBar";
@@ -12,19 +12,20 @@ import OrderReviewCardComponent from "@/components/cards/order-review-card.compo
 import SearchInput from "@/components/common/SearchInput";
 
 const OrderReview = () => {
-    const router = useRouter()
 
     return (
-        <View style={tw`flex-col gap-6`}>
-            <AppBar title={'Reviews'} left={<BackBtn customOnPress={() => router.push("/home")}/>} right={<View style={tw`w-11`}/>}/>
-            <SearchInput />
-            <FlatList
-                data={OrdersArray}
-                contentContainerStyle={tw`gap-4 p-2 pb-12 px-[5%]`}
-                style={{height: screen_height * 0.75}}
-                renderItem={({item}) => <OrderReviewCardComponent order={item}/>}
+        <SafeAreaView>
+            <View style={tw`flex-col gap-6`}>
+                <AppBar title={'Reviews'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
+                <SearchInput />
+                <FlatList
+                    data={OrdersArray}
+                    contentContainerStyle={tw`gap-4 p-2 pb-12 px-[5%]`}
+                    style={{height: screen_height * 0.75}}
+                    renderItem={({item}) => <OrderReviewCardComponent order={item}/>}
                 />
-        </View>
+            </View>
+        </SafeAreaView>
     );
 };
 

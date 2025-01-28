@@ -28,7 +28,7 @@ const Search = () => {
     return (
         <SafeAreaView>
             <View style={[tw`flex-col gap-4 pt-4`, {maxHeight: screen_height * 0.87}]}>
-                <AppBar title={'Search'} left={<BackBtn customOnPress={() => router.push("/home")}/>} right={<View style={tw`w-11`}/>}/>
+                <AppBar title={'Search'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
                 <View style={{height: screen_height * 0.85}}>
                     <ScrollView contentContainerStyle={tw`px-[5%] pb-36 gap-4`}>
                         <TextInput icon={<Magnifer />} placeholder={"Search Orders"}/>

@@ -14,7 +14,7 @@ const Notifications = () => {
     return (
         <SafeAreaView>
             <View style={tw`flex-col gap-3 pt-4`}>
-                <AppBar title={'Notifications'} left={<BackBtn customOnPress={() => router.push("/home")}/>} right={<View style={tw`w-11`}/>}/>
+                <AppBar title={'Notifications'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
                 <FlatList
                     data={OrdersArray}
                     contentContainerStyle={tw`gap-4 pt-2 pb-10 px-[5%]`}

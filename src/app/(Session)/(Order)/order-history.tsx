@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FlatList, View} from "react-native";
+import {FlatList, SafeAreaView, View} from "react-native";
 import TextInput from "@/components/common/TextInput";
 import Magnifer from "@/assets/icons/magnifer.svg";
 import Calendar from "@/assets/icons/calendar.svg";
@@ -16,26 +16,27 @@ import SearchInput from "@/components/common/SearchInput";
 
 const OrderHistory = () => {
     const [filter, setFilter] = useState<string>('All');
-    const router = useRouter()
 
     return (
-        <View style={tw`flex-col gap-6`}>
-            <AppBar title={'Order history'} left={<BackBtn customOnPress={() => router.push("/home")}/>} right={<View style={tw`w-11`}/>}/>
-            <SearchInput />
-            <FlatList
-                data={filters}
-                contentContainerStyle={tw`gap-2 pb-2 px-[5%]`}
-                renderItem={({item}) => <FilterBtnComponent textValue={item} onPress={() => setFilter(item)} selected={item === filter}/>}
-                horizontal
-                showsHorizontalScrollIndicator={false}
-            />
-            <FlatList
-                data={OrdersArray}
-                contentContainerStyle={tw`gap-4 p-2 pb-4 px-[5%]`}
-                style={{height: screen_height * 0.7}}
-                renderItem={({item}) => <OrderHistoryCardComponent order={item}/>}
+        <SafeAreaView>
+            <View style={tw`flex-col gap-6`}>
+                <AppBar title={'Order history'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
+                <SearchInput />
+                <FlatList
+                    data={filters}
+                    contentContainerStyle={tw`gap-2 pb-2 px-[5%]`}
+                    renderItem={({item}) => <FilterBtnComponent textValue={item} onPress={() => setFilter(item)} selected={item === filter}/>}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
                 />
-        </View>
+                <FlatList
+                    data={OrdersArray}
+                    contentContainerStyle={tw`gap-4 p-2 pb-4 px-[5%]`}
+                    style={{height: screen_height * 0.7}}
+                    renderItem={({item}) => <OrderHistoryCardComponent order={item}/>}
+                />
+            </View>
+        </SafeAreaView>
     );
 };
 

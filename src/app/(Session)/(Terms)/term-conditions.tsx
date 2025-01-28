@@ -12,7 +12,7 @@ const TermsAndConditions = () => {
 
     return (
         <View style={tw`flex-col gap-6`}>
-            <AppBar title={'Terms & Conditions'} left={<BackBtn customOnPress={() => router.push("/user-profile")}/>} right={<View style={tw`w-11`}/>}/>
+            <AppBar title={'Terms & Conditions'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
             <View style={{height: screen_height * 0.8}}>
                 <ScrollView contentContainerStyle={tw`px-[5%]`}>
                     <Text>

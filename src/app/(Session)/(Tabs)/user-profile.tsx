@@ -34,7 +34,7 @@ const UserProfile = () => {
     return (
         <SafeAreaView>
             <View style={[tw`flex-col gap-4 pt-4`, {maxHeight: screen_height * 0.87}]}>
-                <AppBar title={'Profile'} left={<BackBtn customOnPress={() => router.push("/home")}/>}
+                <AppBar title={'Profile'} left={<BackBtn />}
                         right={<View style={tw`w-11`}/>}/>
                 <View style={{height: screen_height * 0.85}}>
                     <ScrollView contentContainerStyle={tw`px-[5%] pb-36`}>
