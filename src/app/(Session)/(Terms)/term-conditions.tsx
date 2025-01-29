@@ -2,7 +2,7 @@ import React from 'react';
 import tw from "@/utils/tailwind";
 import AppBar from "@/components/common/AppBar";
 import BackBtn from "@/components/common/BackBtn";
-import {ScrollView, View} from "react-native";
+import {SafeAreaView, ScrollView, View} from "react-native";
 import {useRouter} from "expo-router";
 import Text from "@/components/common/Text";
 import {screen_height} from "@/constants/common";
@@ -11,6 +11,8 @@ const TermsAndConditions = () => {
     const router = useRouter();
 
     return (
+        <SafeAreaView>
+            <View style={tw`pt-3`}>
         <View style={tw`flex-col gap-6`}>
             <AppBar title={'Terms & Conditions'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
             <View style={{height: screen_height * 0.8}}>
@@ -29,6 +31,8 @@ const TermsAndConditions = () => {
                 </ScrollView>
             </View>
         </View>
+            </View>
+        </SafeAreaView>
     );
 };
 

@@ -11,6 +11,7 @@ const PrivacyPolicy = () => {
 
     return (
         <SafeAreaView>
+            <View style={tw`pt-3`}>
             <View style={tw`flex-col gap-6`}>
                 <AppBar title={'Privacy Policy'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
                 <View style={{height: screen_height * 0.8}}>
@@ -28,6 +29,7 @@ const PrivacyPolicy = () => {
                         </Text>
                     </ScrollView>
                 </View>
+            </View>
             </View>
         </SafeAreaView>
     );

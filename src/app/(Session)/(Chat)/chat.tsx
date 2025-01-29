@@ -15,7 +15,7 @@ const Chat = () => {
         <SafeAreaView>
             <View style={[tw`flex-col gap-6`, {maxHeight: screen_height * 0.93}]}>
                 <AppBar title={'Messages'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
-                <TextInput icon={<Magnifer />} placeholder={"Search Orders"} styleCustom={"w-[90%] self-center"}/>
+                <TextInput icon={<Magnifer />} placeholder={"Search messages"} styleCustom={"w-[90%] self-center"}/>
                 <FlatList data={chat} contentContainerStyle={tw`px-[5%] gap-6 pb-10`} renderItem={({item}) => <ChatComponent {...item}/>} />
             </View>
         </SafeAreaView>

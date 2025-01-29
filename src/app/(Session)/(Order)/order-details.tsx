@@ -32,8 +32,9 @@ const OrderDetails = () => {
 
     return (
         <SafeAreaView>
+            <View style={tw`pt-3`}>
             <View style={tw`gap-5 h-full`}>
-                <AppBar title={'Order Details'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
+                <AppBar title={'Order Details'} left={<BackBtn customOnPress={status ? () => router.push('/(Session)/(Tabs)/list') : undefined}/>} right={<View style={tw`w-11`}/>}/>
                 <ScrollView contentContainerStyle={tw`px-[5%] gap-5 pb-4`}>
                     <View style={tw`flex-row justify-between items-center`}>
                         <Text variant={"body-lg-light"}>Order Summary</Text>
@@ -76,6 +77,7 @@ const OrderDetails = () => {
                         </Button>
                     </View>
                 )}
+            </View>
             </View>
         </SafeAreaView>
     );

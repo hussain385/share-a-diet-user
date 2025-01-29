@@ -15,6 +15,7 @@ const OrderSuccess = () => {
 
     return (
         <SafeAreaView>
+            <View style={tw`pt-3`}>
             <View style={tw`gap-4 items-center justify-center h-[97%] px-[5%]`}>
                 <CheckGreen />
                 <Text variant={"body-lg-light"} style={tw`text-center`}>Time</Text>
@@ -25,7 +26,8 @@ const OrderSuccess = () => {
                     </Text>
                 </View>
                 <Text variant={"body-lg-bold"}>Order placed successfully!</Text>
-                <Button onPress={() => router.push('/order-history')} style={tw`w-full`}>Close</Button>
+                <Button onPress={() => router.push('/(Session)/(Tabs)/list')} style={tw`w-full`}>Close</Button>
+            </View>
             </View>
         </SafeAreaView>
     );

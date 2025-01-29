@@ -19,6 +19,7 @@ import useImagePicker from "@/hooks/useImagePicker";
 import ImagePickerComponent from "@/components/common/ImagePicker";
 
 const ChatScreen = () => {
+    const router = useRouter();
     const [keyboardVisible, setKeyboardVisible] = useState(false);
     const flatListRef = useRef<FlatList>(null);
     const {
@@ -59,7 +60,7 @@ const ChatScreen = () => {
     }, [messages, keyboardVisible]);
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={tw`flex-1`}>
             <KeyboardAvoidingView
                 style={tw`flex-1 bg-[#0D12170D]`}
                 behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -68,7 +69,7 @@ const ChatScreen = () => {
                     <View style={tw`bg-white gap-4 pb-4`}>
                         <AppBar
                             title="Messages"
-                            left={<BackBtn />}
+                            left={<BackBtn customOnPress={() => router.push('/chat')}/>}
                             right={<View style={tw`w-11`} />}
                         />
 

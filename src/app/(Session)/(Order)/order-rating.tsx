@@ -33,6 +33,7 @@ const OrderRating = () => {
 
     return (
         <SafeAreaView>
+            <View style={tw`pt-3`}>
             <View style={tw`h-full pb-10`}>
                 <AppBar title={'Order Rating'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
                 <View style={tw`px-[5%] justify-between flex-1`}>
@@ -59,7 +60,7 @@ const OrderRating = () => {
                             {isFromReview === 'true' ? (
                                 <></>
                             ) : (
-                                <Button onPress={() => router.push('/order-history')} variant={"ghost"} style={tw`flex-1`}>
+                                <Button onPress={() => router.push('/(Session)/(Tabs)/list')} variant={"ghost"} style={tw`flex-1`}>
                                     Skip
                                 </Button>
                             )}
@@ -71,9 +72,10 @@ const OrderRating = () => {
                 </View>
                 <SuccessModal modalVisible={openSuccessModal} togglePopup={toggleModal} btnTitle={isFromReview === 'true' ? 'Close' : "Back to dashboard"}
                               title={"Thank you!"} onPressBtn={() => {
-                    router.push(isFromReview === 'true' ? '/order-review' : '/order-history')
+                    router.push(isFromReview === 'true' ? '/order-review' : '/(Session)/(Tabs)/list')
                     toggleModal()
                 }}/>
+            </View>
             </View>
         </SafeAreaView>
     );

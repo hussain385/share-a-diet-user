@@ -49,7 +49,7 @@ const CustomDrawerComponent = (props: DrawerContentComponentProps) => {
             <Button onPress={() => router.push("/(Introduction)/introduction")} icon={<Logout/>} style={tw`bg-secondary100 my-6`} textStyle={tw`text-secondary200`}>
                 Logout
             </Button>
-            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Order)/order-history")} icons={<Receipt width={20} height={20}/>} label={"Order History"} style={tw`pb-4 px-2 rounded-md`}/>
+            <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Tabs)/list")} icons={<Receipt width={20} height={20}/>} label={"Order History"} style={tw`pb-4 px-2 rounded-md`}/>
             <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Review)/order-review")} icons={<AntDesign name="staro" size={20} color="black" />} label={"Reviews"} style={tw`pb-4 px-2 rounded-md`}/>
             <AnalyticsLinksComponents onPress={() => router.push("/location-lists")} icons={<Location width={20} height={20}/>} label={"My Location"} style={tw`pb-4 px-2 rounded-md`}/>
             <AnalyticsLinksComponents onPress={() => router.push("/(Session)/(Chat)/chat")} icons={<ChatDots width={20} height={20}/>} label={"Messages"} style={tw`pb-4 px-2 rounded-md`} count={1}/>

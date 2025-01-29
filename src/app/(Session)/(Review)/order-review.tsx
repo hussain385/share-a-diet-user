@@ -15,6 +15,7 @@ const OrderReview = () => {
 
     return (
         <SafeAreaView>
+            <View style={tw`pt-3`}>
             <View style={tw`flex-col gap-6`}>
                 <AppBar title={'Reviews'} left={<BackBtn />} right={<View style={tw`w-11`}/>}/>
                 <SearchInput />
@@ -24,6 +25,7 @@ const OrderReview = () => {
                     style={{height: screen_height * 0.75}}
                     renderItem={({item}) => <OrderReviewCardComponent order={item}/>}
                 />
+            </View>
             </View>
         </SafeAreaView>
     );
